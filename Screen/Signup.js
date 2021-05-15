@@ -1,0 +1,94 @@
+import React from 'react';
+import { View,Text,TouchableOpacity,StyleSheet,TextInput,ImageBackground } from 'react-native';
+
+const Signup = (props) =>{
+    return (
+      <View style={styles.container}>
+        <ImageBackground
+          mode="cover"
+          source={require("../assets/bg.jpg")}
+          style={styles.background}
+        >
+          <View>
+            <TextInput
+              style={styles.input1}
+              placeholder="Username"
+              placeholderTextColor="#FF2871"
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              placeholderTextColor="#FF2871"
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              placeholderTextColor="#FF2871"
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Confirm Password"
+              placeholderTextColor="#FF2871"
+            />
+          </View>
+          <View style={styles.signup}>
+            <TouchableOpacity
+              onPress={() => {
+                props.navigation.navigate("Home");
+              }}
+            >
+              <Text
+                style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
+              >
+                Signup
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </ImageBackground>
+      </View>
+    );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  background: {
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  input1: {
+    width: 300,
+    height: 45,
+    marginTop: 250,
+    borderRadius: 20,
+    fontSize: 18,
+    backgroundColor: "white",
+    paddingLeft: 10,
+  },
+  input: {
+    width: 300,
+    height: 43,
+    marginTop: 5,
+    borderRadius: 20,
+    fontSize: 18,
+    backgroundColor: "white",
+    paddingLeft: 10,
+  },
+  signup: {
+    backgroundColor: "#FF2871",
+    height: 40,
+    width: 120,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 20,
+    marginTop: 150,
+  },
+});
+
+export default Signup;
