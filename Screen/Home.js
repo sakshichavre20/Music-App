@@ -29,7 +29,7 @@ const Home = ({navigation}) => {
               Music
             </Text>
           </View>
-          <View style={{ width: "10%", alignItems:'flex-end' }}>
+          <View style={{ width: "10%", alignItems: "flex-end" }}>
             <FontAwesome name="search" size={24} color="white" />
           </View>
         </View>
@@ -40,10 +40,10 @@ const Home = ({navigation}) => {
         </View>
         {/*SEARCH section ends*/}
         <ScrollView style={{ width: "100%" }}>
-          <MusicList />
-          <MusicList />
-          <MusicList />
-          <MusicList />
+          <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
+          <MusicList name="Woh Lamhe" details="Atif Aslam" />
+          <MusicList name="Tere Bin" details="Atif Aslam" />
+          <MusicList name="Pehli Dafa" details="Atif Aslam" />
         </ScrollView>
       </View>
     );
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     width: "80%",
     height: 40,
     alignItems: "center",
-    margin: 10,
+    margin: 13,
     flexDirection: "row",
     borderRadius: 20,
     paddingHorizontal:10

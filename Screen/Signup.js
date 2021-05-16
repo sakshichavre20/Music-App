@@ -1,5 +1,6 @@
 import React from 'react';
 import { View,Text,TouchableOpacity,StyleSheet,TextInput,ImageBackground } from 'react-native';
+import { LinearGradient } from "expo-linear-gradient";
 
 const Signup = (props) =>{
     return (
@@ -31,19 +32,31 @@ const Signup = (props) =>{
               placeholderTextColor="#FF2871"
             />
           </View>
-          <View style={styles.signup}>
+          <LinearGradient
+            style={styles.signup}
+            colors={["#FF3C7E", "#FC2C72", "#ff005c", "#FB0029"]}
+          >
             <TouchableOpacity
               onPress={() => {
                 props.navigation.navigate("Home");
               }}
             >
-              <Text
-                style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: 50,
+                  width: 150,
+                }}
               >
-                Signup
-              </Text>
+                <Text
+                  style={{ fontSize: 20, fontWeight: "bold", color: "black" }}
+                >
+                  Signup
+                </Text>
+              </View>
             </TouchableOpacity>
-          </View>
+          </LinearGradient>
         </ImageBackground>
       </View>
     );
@@ -82,8 +95,8 @@ const styles = StyleSheet.create({
   },
   signup: {
     backgroundColor: "#FF2871",
-    height: 40,
-    width: 120,
+    height: 50,
+    width: 150,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 20,

@@ -1,10 +1,12 @@
 import React from 'react';
 import { View,Text,TouchableOpacity,StyleSheet,Image,TextInput, ImageBackground } from 'react-native';
 import Home from '../Screen/Home';
-
+import { LinearGradient } from 'expo-linear-gradient';
+import { StatusBar } from "expo-status-bar";
 const Login = (props) =>{
     return (
       <View style={styles.container}>
+        <StatusBar style="light" />
         <ImageBackground
           mode="cover"
           source={require("../assets/bg.jpg")}
@@ -22,19 +24,28 @@ const Login = (props) =>{
               placeholderTextColor="#FF2871"
             />
           </View>
-          <View style={styles.login}>
+          <LinearGradient
+            style={styles.login}
+            colors={["#FF3C7E", "#FC2C72", "#ff005c", "#FB0029"]}
+          >
             <TouchableOpacity
               onPress={() => {
                 props.navigation.replace("Home");
-              }}
-            >
-              <Text
-                style={{ fontSize: 18, fontWeight: "bold", color: "white" }}
+              }}> 
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: 50,
+                  width: 150,
+                }}
               >
+              <Text style={{ fontSize: 18, fontWeight: "bold", color: "black" }}>
                 LOGIN
               </Text>
+              </View>
             </TouchableOpacity>
-          </View>
+          </LinearGradient>
           <View style={styles.signup}>
             <Text style={{ fontSize: 20, color: "white" }}>
               Dont have an account?
@@ -44,12 +55,11 @@ const Login = (props) =>{
                 props.navigation.navigate("Signup");
               }}
             >
-              <Text
-                style={{ fontSize: 23, fontWeight: "bold", color: "#FF2871" }}
-              >
-                {" "}
-                SignUp
-              </Text>
+              
+                <Text
+                  style={{ fontSize: 23, fontWeight: "bold", color: "#FF2871" }}>
+                 {' '} SignUp
+                </Text>
             </TouchableOpacity>
           </View>
         </ImageBackground>

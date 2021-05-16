@@ -2,15 +2,15 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Ionicons, MaterialIcons } from "react-native-vector-icons"; 
 
-const MusicList = () => {
+const MusicList = ({name,details}) => {
     return (
       <View style={styles.container}>
         <Ionicons name="musical-notes-sharp" size={28} color="#FF2871" />
         <View style={{ width: "77%" ,paddingLeft:10}}>
           <Text style={{ fontSize: 20, fontWeight: "bold", color: "#929695" }}>
-            Music
+            {name}
           </Text>
-          <Text style={{ fontSize: 20, color: "#929695" }}>Description</Text>
+          <Text style={{ fontSize: 20, color: "#929695" }}>{details}</Text>
         </View>
 
         <View

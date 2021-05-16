@@ -12,6 +12,7 @@ import Setting from './Screen/Settings';
 import Home from './Screen/Home';
 import Notification from './Screen/Notification';
 import Security from './Screen/Security';
+import SignOut from './Screen/SignOut';
 
 
 
@@ -96,6 +97,7 @@ export default function App() {
      <Drawer.Screen name="Home" component={Home} />
      <Drawer.Screen name="Notification" component={Notification} />
      <Drawer.Screen name="Security" component={Security} />
+     <Drawer.Screen name="SignOut" component={SignOut}/>
    </Drawer.Navigator>
  );
  }
