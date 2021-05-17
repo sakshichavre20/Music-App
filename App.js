@@ -13,6 +13,7 @@ import Home from './Screen/Home';
 import Notification from './Screen/Notification';
 import Security from './Screen/Security';
 import SignOut from './Screen/SignOut';
+import { DrawerContent } from './Components/CustomDrawer';
 
 
 
@@ -77,7 +78,7 @@ export default function App() {
            ),
          }}
        />
-       <Tab.Screen
+       {/*<Tab.Screen
          name="Setting"
          component={Setting}
          options={{
@@ -85,7 +86,7 @@ export default function App() {
              <Ionicons name="settings" color={color} size={25} />
            ),
          }}
-       />
+        />*/}
      </Tab.Navigator>
    );
  }
@@ -93,11 +94,11 @@ export default function App() {
  const Drawer = createDrawerNavigator();
  function DrawerNavigator () {
  return (
-   <Drawer.Navigator initialRouteName="Home">
+   <Drawer.Navigator initialRouteName="Home" drawerContent={(props)=> <DrawerContent {...props } />} >
      <Drawer.Screen name="Home" component={Home} />
      <Drawer.Screen name="Notification" component={Notification} />
-     <Drawer.Screen name="Security" component={Security} />
-     <Drawer.Screen name="SignOut" component={SignOut}/>
+     <Drawer.Screen name="Setting" component={Setting} />
+     
    </Drawer.Navigator>
  );
  }

@@ -8,7 +8,11 @@ import {
   ScrollView,
 } from "react-native";
 import {StatusBar} from 'expo-status-bar';
-import { FontAwesome, Ionicons } from 'react-native-vector-icons';
+import {
+  FontAwesome,
+  Ionicons,
+  MaterialIcons,
+} from "react-native-vector-icons";
 
 import MusicList from '../CustomList/MusicList'
 
@@ -29,14 +33,21 @@ const Home = ({navigation}) => {
               Music
             </Text>
           </View>
-          <View style={{ width: "10%", alignItems: "flex-end" }}>
-            <FontAwesome name="search" size={24} color="white" />
-          </View>
+          <View
+            style={{
+              width: "10%",
+              alignItems: "flex-end",
+              position: "absolute",
+            }}
+          ></View>
         </View>
         {/*HEADER section ends*/}
         <View style={styles.search}>
-          <FontAwesome name="search" size={24} color="black" />
+          <FontAwesome name="search" size={24} color="#929695" />
           <TextInput placeholder="Search" style={styles.input} />
+          <View style={{ width: "10%", justifyContent: "flex-end",}}>
+            <MaterialIcons name="keyboard-voice" size={28} color="#929695" />
+          </View>
         </View>
         {/*SEARCH section ends*/}
         <ScrollView style={{ width: "100%" }}>
@@ -75,12 +86,10 @@ const styles = StyleSheet.create({
     margin: 13,
     flexDirection: "row",
     borderRadius: 20,
-    paddingHorizontal:10
+    paddingHorizontal:15
   },
   input: {
-    width: "90%",
-    maxWidth:100,
-    color: "#FF2871",
+    width: "82%",
     paddingLeft:10,
     fontSize:18,
   },
