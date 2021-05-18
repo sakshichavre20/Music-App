@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import {
   Avatar,
@@ -19,24 +19,29 @@ import {
 
 export function DrawerContent(props) {
   return (
-    <View style={{ flex: 1, backgroundColor: "white" }}>
+    <View style={{ flex: 1, backgroundColor: "black" }}>
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerContent}>
           <View style={styles.userinfo}>
-            <View style={{ flexDirection: "row" }}>
-              <Avatar.Image
-                source={{
-                  uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSLkkV462n0oIUwMR99gPmRAa8iKA1Q4AP2g&usqp=CAU",
-                }}
-                size={60}
-              />
-              <View style={{ marginLeft: 10 }}>
-                <Title style={{ color: "black" }}>Sakshi Chavre</Title>
-                <Caption style={{ fontSize: 15, color: "grey" }}>
-                  @Sakshi_Chavre
-                </Caption>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate("Account")}
+            >
+              <View style={{ flexDirection: "row" }}>
+                <Avatar.Image
+                  source={{
+                    uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSLkkV462n0oIUwMR99gPmRAa8iKA1Q4AP2g&usqp=CAU",
+                  }}
+                  size={60}
+                />
+
+                <View style={{ marginLeft: 10 }}>
+                  <Title style={{ color: "grey" }}>Sakshi Chavre</Title>
+                  <Caption style={{ fontSize: 15, color: "#FF2871" }}>
+                    @Sakshi_Chavre
+                  </Caption>
+                </View>
               </View>
-            </View>
+            </TouchableOpacity>
           </View>
 
           <Drawer.Section style={styles.section}>
@@ -44,7 +49,7 @@ export function DrawerContent(props) {
               icon={({ color, size }) => (
                 <Ionicons name="musical-notes" color="grey" size={size} />
               )}
-              label="Music"
+              label={() => <Text style={{ color: "#FF2871" }}>Music</Text>}
               activeBackgroundColor="red"
               pressColor="pink"
               style={{}}
@@ -52,24 +57,11 @@ export function DrawerContent(props) {
                 props.navigation.navigate("Home");
               }}
             />
-
             <DrawerItem
               icon={({ color, size }) => (
-                <Ionicons name="notifications" color="grey" size={size} />
+                <Ionicons name="settings" color="grey" size={25} />
               )}
-              label="Notifications"
-              pressColor="pink"
-              style={{}}
-              onPress={() => {
-                props.navigation.navigate("Notification");
-              }}
-            />
-
-            <DrawerItem
-              icon={({ color, size }) => (
-                <Ionicons name="settings" color={color} size={25} />
-              )}
-              label="Settings"
+              label={() => <Text style={{ color: "#FF2871" }}>Settings</Text>}
               pressColor="pink"
               style={{}}
               onPress={() => {
@@ -79,21 +71,6 @@ export function DrawerContent(props) {
           </Drawer.Section>
         </View>
       </DrawerContentScrollView>
-      <Drawer.Section styles={styles.bottomDrawer}>
-        <DrawerItem
-          icon={({ color, size }) => (
-            <MaterialCommunityIcons
-              name="exit-to-app"
-              color={color}
-              size={size}
-            />
-          )}
-          label="SignOut"
-          onPress={() => {
-            props.navigation.navigate("Login");
-          }}
-        />
-      </Drawer.Section>
     </View>
   );
 }

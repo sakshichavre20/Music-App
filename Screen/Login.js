@@ -30,7 +30,7 @@ const Login = (props) =>{
           >
             <TouchableOpacity
               onPress={() => {
-                props.navigation.replace("Home");
+                props.navigation.replace("HomeScreen");
               }}> 
               <View
                 style={{

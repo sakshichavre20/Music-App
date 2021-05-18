@@ -3,17 +3,20 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
-import { MaterialCommunityIcons , Ionicons} from 'react-native-vector-icons'
+import {
+  MaterialCommunityIcons,
+  Ionicons,
+  FontAwesome5,
+} from "react-native-vector-icons";
 //importing pages 
 import Login from './Screen/Login';
 import Signup from './Screen/Signup';
 import Account from './Screen/Account';
 import Setting from './Screen/Settings';
 import Home from './Screen/Home';
-import Notification from './Screen/Notification';
-import Security from './Screen/Security';
-import SignOut from './Screen/SignOut';
 import { DrawerContent } from './Components/CustomDrawer';
+import PodCast from './Screen/Podcast';
+import MyMusic from './Screen/MyMusic';
 
 
 
@@ -37,8 +40,8 @@ export default function App() {
           }}
         />
         <Stack.Screen
-          name="Home"
-          component={BottomTab}
+          name="HomeScreen"
+          component={DrawerNavigator}
           options={{
             headerShown: false,
           }}
@@ -58,7 +61,7 @@ export default function App() {
      >
        <Tab.Screen
          name="Home"
-         component={DrawerNavigator}
+         component={Home}
          options={{
            tabBarIcon: ({ color }) => (
              <MaterialCommunityIcons name="home" color={color} size={26} />
@@ -66,27 +69,23 @@ export default function App() {
          }}
        />
        <Tab.Screen
-         name="Account"
-         component={Account}
+         name="Podcast"
+         component={PodCast}
          options={{
            tabBarIcon: ({ color }) => (
-             <MaterialCommunityIcons
-               name="account-circle"
-               color={color}
-               size={26}
-             />
+             <FontAwesome5 name="podcast" size={26} color={color} />
            ),
          }}
        />
-       {/*<Tab.Screen
-         name="Setting"
-         component={Setting}
+       <Tab.Screen
+         name="MyMusic"
+         component={MyMusic}
          options={{
            tabBarIcon: ({ color }) => (
-             <Ionicons name="settings" color={color} size={25} />
+             <Ionicons name="ios-musical-notes-sharp" size={24} color={color} />
            ),
          }}
-        />*/}
+       />
      </Tab.Navigator>
    );
  }
@@ -94,11 +93,13 @@ export default function App() {
  const Drawer = createDrawerNavigator();
  function DrawerNavigator () {
  return (
-   <Drawer.Navigator initialRouteName="Home" drawerContent={(props)=> <DrawerContent {...props } />} >
-     <Drawer.Screen name="Home" component={Home} />
-     <Drawer.Screen name="Notification" component={Notification} />
+   <Drawer.Navigator
+     initialRouteName="Home"
+     drawerContent={(props) => <DrawerContent {...props} />}
+   >
+     <Drawer.Screen name="Music" component={BottomTab} />
      <Drawer.Screen name="Setting" component={Setting} />
-     
+     <Drawer.Screen name="Account" component={Account} />
    </Drawer.Navigator>
  );
  }

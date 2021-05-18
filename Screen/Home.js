@@ -45,12 +45,51 @@ const Home = ({navigation}) => {
         <View style={styles.search}>
           <FontAwesome name="search" size={24} color="#929695" />
           <TextInput placeholder="Search" style={styles.input} />
-          <View style={{ width: "10%", justifyContent: "flex-end",}}>
+          <View style={{ width: "10%", justifyContent: "flex-end" }}>
             <MaterialIcons name="keyboard-voice" size={28} color="#929695" />
           </View>
         </View>
+
         {/*SEARCH section ends*/}
-        <ScrollView style={{ width: "100%" }}>
+        {/*1st Scroll List*/}
+        <View style={{ width: "100%", padding: 5 }}>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "500",
+              color: "#FF2871",
+            }}
+          >
+            Recently Played ....
+          </Text>
+        </View>
+        <ScrollView style={{ width: "100%" }} horizontal={true}>
+          <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
+          <MusicList name="Woh Lamhe" details="Atif Aslam" />
+          <MusicList name="Tere Bin" details="Atif Aslam" />
+          <MusicList name="Pehli Dafa" details="Atif Aslam" />
+          <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
+          <MusicList name="Woh Lamhe" details="Atif Aslam" />
+          <MusicList name="Tere Bin" details="Atif Aslam" />
+          <MusicList name="Pehli Dafa" details="Atif Aslam" />
+        </ScrollView>
+        {/*2nd Scroll List*/}
+        <View style={{ width: "100%", padding: 5 }}>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "500",
+              color: "#FF2871",
+            }}
+          >
+            Today's Pick ....
+          </Text>
+        </View>
+        <ScrollView style={{ width: "100%" }} horizontal={true}>
+          <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
+          <MusicList name="Woh Lamhe" details="Atif Aslam" />
+          <MusicList name="Tere Bin" details="Atif Aslam" />
+          <MusicList name="Pehli Dafa" details="Atif Aslam" />
           <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
           <MusicList name="Woh Lamhe" details="Atif Aslam" />
           <MusicList name="Tere Bin" details="Atif Aslam" />

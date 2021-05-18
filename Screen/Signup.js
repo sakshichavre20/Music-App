@@ -38,7 +38,7 @@ const Signup = (props) =>{
           >
             <TouchableOpacity
               onPress={() => {
-                props.navigation.navigate("Home");
+                props.navigation.navigate("HomeScreen");
               }}
             >
               <View
