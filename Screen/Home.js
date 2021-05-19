@@ -15,16 +15,18 @@ import {
 } from "react-native-vector-icons";
 
 import MusicList from '../CustomList/MusicList'
+import MusicCatog from '../Screen/MusicCatog';
+import RecentlyPlayed from '../Screen/RecentlyPlayed';
 
 
 
-const Home = ({navigation}) => {
+const Home = (props) => {
     return (
       <View style={styles.conatiner}>
         <StatusBar style="light" />
         <View style={styles.header}>
           <View style={{ width: "10%" }}>
-            <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            <TouchableOpacity onPress={() => props.navigation.openDrawer()}>
               <Ionicons name="menu" size={28} color="white" />
             </TouchableOpacity>
           </View>
@@ -51,49 +53,60 @@ const Home = ({navigation}) => {
         </View>
 
         {/*SEARCH section ends*/}
-        {/*1st Scroll List*/}
-        <View style={{ width: "100%", padding: 5 }}>
-          <Text
-            style={{
-              fontSize: 18,
-              fontWeight: "500",
-              color: "#FF2871",
-            }}
-          >
-            Recently Played ....
-          </Text>
-        </View>
-        <ScrollView style={{ width: "100%" }} horizontal={true}>
-          <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
-          <MusicList name="Woh Lamhe" details="Atif Aslam" />
-          <MusicList name="Tere Bin" details="Atif Aslam" />
-          <MusicList name="Pehli Dafa" details="Atif Aslam" />
-          <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
-          <MusicList name="Woh Lamhe" details="Atif Aslam" />
-          <MusicList name="Tere Bin" details="Atif Aslam" />
-          <MusicList name="Pehli Dafa" details="Atif Aslam" />
-        </ScrollView>
-        {/*2nd Scroll List*/}
-        <View style={{ width: "100%", padding: 5 }}>
-          <Text
-            style={{
-              fontSize: 18,
-              fontWeight: "500",
-              color: "#FF2871",
-            }}
-          >
-            Today's Pick ....
-          </Text>
-        </View>
-        <ScrollView style={{ width: "100%" }} horizontal={true}>
-          <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
-          <MusicList name="Woh Lamhe" details="Atif Aslam" />
-          <MusicList name="Tere Bin" details="Atif Aslam" />
-          <MusicList name="Pehli Dafa" details="Atif Aslam" />
-          <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
-          <MusicList name="Woh Lamhe" details="Atif Aslam" />
-          <MusicList name="Tere Bin" details="Atif Aslam" />
-          <MusicList name="Pehli Dafa" details="Atif Aslam" />
+        <ScrollView style={{ flex: 1, width: "100%" }}>
+          {/*1st Scroll List*/}
+          {/*
+          <View style={{ width: "100%", height: 200 }}>
+            <View style={{ width: "100%", padding: 5 }}>
+              <Text
+                style={{
+                  fontSize: 18,
+                  fontWeight: "500",
+                  color: "#FF2871",
+                }}
+              >
+                Recently Played ....
+              </Text>
+            </View>
+
+            <ScrollView style={{ width: "100%" }} horizontal={true}>
+              <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
+              <MusicList name="Woh Lamhe" details="Atif Aslam" />
+              <MusicList name="Tere Bin" details="Atif Aslam" />
+              <MusicList name="Pehli Dafa" details="Atif Aslam" />
+              <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
+              <MusicList name="Woh Lamhe" details="Atif Aslam" />
+              <MusicList name="Tere Bin" details="Atif Aslam" />
+              <MusicList name="Pehli Dafa" details="Atif Aslam" />
+            </ScrollView>
+          </View>
+          
+          <View style={{ width: "100%", height: 200 }}>
+            <View style={{ width: "100%", padding: 5 }}>
+              <Text
+                style={{
+                  fontSize: 18,
+                  fontWeight: "500",
+                  color: "#FF2871",
+                }}
+              >
+                Today's Pick ....
+              </Text>
+            </View>
+            <ScrollView style={{ width: "100%" }} horizontal={true}>
+              <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
+              <MusicList name="Woh Lamhe" details="Atif Aslam" />
+              <MusicList name="Tere Bin" details="Atif Aslam" />
+              <MusicList name="Pehli Dafa" details="Atif Aslam" />
+              <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
+              <MusicList name="Woh Lamhe" details="Atif Aslam" />
+              <MusicList name="Tere Bin" details="Atif Aslam" />
+              <MusicList name="Pehli Dafa" details="Atif Aslam" />
+            </ScrollView>
+          </View>
+          */}
+          <MusicCatog navigation={props.navigation} />
+          <RecentlyPlayed navigation={props.navigation} />
         </ScrollView>
       </View>
     );
@@ -111,11 +124,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#FF2871",
     height: 50,
     width: "100%",
-    marginTop: 50,
+    marginTop: 30,
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    paddingHorizontal: 10,
+    
   },
   search: {
     backgroundColor: "white",
