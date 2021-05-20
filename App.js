@@ -17,6 +17,13 @@ import Home from './Screen/Home';
 import { DrawerContent } from './Components/CustomDrawer';
 import PodCast from './Screen/Podcast';
 import MyMusic from './Screen/MyMusic';
+import Equalizer from './Settings/Equalizer';
+import LanguagePref from './Settings/LanguagePref';
+import StreamingQuality from './Settings/StreamingQuality';
+import DownloadQuality from './Settings/DownloadQuality';
+import MyFav from './MyMusic/MyFav';
+import MyDownloads from './MyMusic/MyDownloads';
+import MyLibraray from './MyMusic/MyLibraray';
 
 
 
@@ -42,6 +49,55 @@ export default function App() {
         <Stack.Screen
           name="HomeScreen"
           component={DrawerNavigator}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Equalizer"
+          component={Equalizer}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="LanguagePref"
+          component={LanguagePref}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="StreamingQuality"
+          component={StreamingQuality}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="DownloadQuality"
+          component={DownloadQuality}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="MyDownloads"
+          component={MyDownloads}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="MyFav"
+          component={MyFav}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="MyLibrary"
+          component={MyLibraray}
           options={{
             headerShown: false,
           }}

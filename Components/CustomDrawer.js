@@ -16,6 +16,7 @@ import {
   FontAwesome,
   Ionicons,
 } from "react-native-vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 
 export function DrawerContent(props) {
   return (
@@ -23,25 +24,30 @@ export function DrawerContent(props) {
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerContent}>
           <View style={styles.userinfo}>
-            <TouchableOpacity
-              onPress={() => props.navigation.navigate("Account")}
+            <LinearGradient
+              style={{padding:10, flex:1}}
+              colors={["#FF3C7E", "#FC2C72", "#ff005c", "#FB0029"]}
             >
-              <View style={{ flexDirection: "row" }}>
-                <Avatar.Image
-                  source={{
-                    uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSLkkV462n0oIUwMR99gPmRAa8iKA1Q4AP2g&usqp=CAU",
-                  }}
-                  size={60}
-                />
+              <TouchableOpacity
+                onPress={() => props.navigation.navigate("Account")}
+              >
+                <View style={{ flexDirection: "row" }}>
+                  <Avatar.Image
+                    source={{
+                      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSLkkV462n0oIUwMR99gPmRAa8iKA1Q4AP2g&usqp=CAU",
+                    }}
+                    size={60}
+                  />
 
-                <View style={{ marginLeft: 10 }}>
-                  <Title style={{ color: "grey" }}>Sakshi Chavre</Title>
-                  <Caption style={{ fontSize: 15, color: "#FF2871" }}>
-                    @Sakshi_Chavre
-                  </Caption>
+                  <View style={{ marginLeft: 10 }}>
+                    <Title style={{ color: "white" }}>Sakshi Chavre</Title>
+                    <Caption style={{ fontSize: 15, color: "white" }}>
+                      @Sakshi_Chavre
+                    </Caption>
+                  </View>
                 </View>
-              </View>
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </LinearGradient>
           </View>
 
           <Drawer.Section style={styles.section}>
@@ -77,10 +83,13 @@ export function DrawerContent(props) {
 
 const styles = StyleSheet.create({
   drawerContent: {
-    padding: 10,
+    
   },
   userinfo: {
     flexDirection: "row",
+    
+    backgroundColor:'#FF2871'
+    
   },
   section: {
     paddingTop: 220,

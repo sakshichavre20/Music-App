@@ -87,7 +87,8 @@ const styles = StyleSheet.create({
   container: {
     height: 175,
     width: "100%",
-    marginBottom:20
+    marginBottom:20,
+    paddingHorizontal:5
   },
   surface: {
     width: 130,

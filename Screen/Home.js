@@ -12,11 +12,14 @@ import {
   FontAwesome,
   Ionicons,
   MaterialIcons,
+  Entypo
 } from "react-native-vector-icons";
 
 import MusicList from '../CustomList/MusicList'
-import MusicCatog from '../Screen/MusicCatog';
-import RecentlyPlayed from '../Screen/RecentlyPlayed';
+import MusicCatog from '../Home/MusicCatog';
+import RecentlyPlayed from '../Home/RecentlyPlayed';
+import TodaysPick from '../Home/TodaysPick';
+import Trending from '../Home/Trending';
 
 
 
@@ -27,7 +30,7 @@ const Home = (props) => {
         <View style={styles.header}>
           <View style={{ width: "10%" }}>
             <TouchableOpacity onPress={() => props.navigation.openDrawer()}>
-              <Ionicons name="menu" size={28} color="white" />
+              <Entypo name="menu" size={28} color="white" />
             </TouchableOpacity>
           </View>
           <View style={{ width: "80%", alignItems: "center" }}>
@@ -107,6 +110,8 @@ const Home = (props) => {
           */}
           <MusicCatog navigation={props.navigation} />
           <RecentlyPlayed navigation={props.navigation} />
+          <TodaysPick navigation={props.navigation} />
+          <Trending navigation={props.navigation} />
         </ScrollView>
       </View>
     );
@@ -124,7 +129,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#FF2871",
     height: 50,
     width: "100%",
-    marginTop: 30,
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
