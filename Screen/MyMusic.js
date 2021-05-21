@@ -6,6 +6,7 @@ import {
   FontAwesome,
   AntDesign,
   MaterialIcons,
+  MaterialCommunityIcons,
 } from "react-native-vector-icons";
 
 
@@ -28,7 +29,11 @@ const MyMusic = (props) => {
       >
         <View style={styles.list}>
           <View style={{ width: "10%", justifyContent: "center" }}>
-            <Ionicons name="play-circle-outline" size={37} color="white" />
+            <MaterialCommunityIcons
+              name="download-box"
+              size={37}
+              color="white"
+            />
           </View>
           <View
             style={{
@@ -37,7 +42,9 @@ const MyMusic = (props) => {
               alignItems: "center",
             }}
           >
-            <Text style={{ fontSize: 18, fontWeight: "700", color:'white' }}>MyDownloads</Text>
+            <Text style={{ fontSize: 18, fontWeight: "700", color: "white" }}>
+              MyDownloads
+            </Text>
             <Text style={{ fontSize: 15, color: "white" }}>6 songs</Text>
           </View>
           <View
@@ -47,11 +54,11 @@ const MyMusic = (props) => {
               alignItems: "flex-end",
             }}
           >
-            <AntDesign name="right" size={30} color="white"/>
+            <AntDesign name="right" size={30} color="white" />
           </View>
         </View>
       </TouchableOpacity>
-      {/* MYFAVOURITE SECTION */}
+      {/* MY FAVOURITE SECTION */}
       <TouchableOpacity
         activeOpacity={0.5}
         onPress={() => props.navigation.navigate("MyFav")}
@@ -59,7 +66,7 @@ const MyMusic = (props) => {
       >
         <View style={styles.list}>
           <View style={{ width: "10%", justifyContent: "center" }}>
-            <MaterialIcons name='favorite-outline' size={30} color='white'/>
+            <Ionicons name="heart" size={30} color="white" />
           </View>
           <View
             style={{
@@ -68,7 +75,7 @@ const MyMusic = (props) => {
               alignItems: "center",
             }}
           >
-            <Text style={{ fontSize: 18, fontWeight: "700" , color:'white' }}>
+            <Text style={{ fontSize: 18, fontWeight: "700", color: "white" }}>
               My Favourite
             </Text>
             <Text style={{ fontSize: 15, color: "white" }}>8 songs</Text>
@@ -80,7 +87,7 @@ const MyMusic = (props) => {
               alignItems: "flex-end",
             }}
           >
-            <AntDesign name="right" size={30} color='white' />
+            <AntDesign name="right" size={30} color="white" />
           </View>
         </View>
       </TouchableOpacity>
@@ -92,7 +99,7 @@ const MyMusic = (props) => {
       >
         <View style={styles.list}>
           <View style={{ width: "10%", justifyContent: "center" }}>
-            <MaterialIcons name="library-music" size={30} color='white'/>
+            <MaterialIcons name="library-music" size={30} color="white" />
           </View>
           <View
             style={{
@@ -101,7 +108,9 @@ const MyMusic = (props) => {
               alignItems: "center",
             }}
           >
-            <Text style={{ fontSize: 18, fontWeight: "700" , color:'white'}}>My Library</Text>
+            <Text style={{ fontSize: 18, fontWeight: "700", color: "white" }}>
+              My Library
+            </Text>
             <Text style={{ fontSize: 15, color: "white" }}>15 songs</Text>
           </View>
           <View
@@ -111,7 +120,7 @@ const MyMusic = (props) => {
               alignItems: "flex-end",
             }}
           >
-            <AntDesign name="right" size={30} color='white'/>
+            <AntDesign name="right" size={30} color="white" />
           </View>
         </View>
       </TouchableOpacity>
@@ -126,6 +135,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "black",
+    paddingTop:30
   },
   header: {
     height: 60,

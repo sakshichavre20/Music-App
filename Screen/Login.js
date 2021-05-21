@@ -6,7 +6,7 @@ import { StatusBar } from "expo-status-bar";
 const Login = (props) =>{
     return (
       <View style={styles.container}>
-        <StatusBar style="light" />
+        <StatusBar style='light'/>
         <ImageBackground
           mode="cover"
           source={require("../assets/bg.jpg")}

@@ -28,7 +28,7 @@ const Home = (props) => {
       <View style={styles.conatiner}>
         <StatusBar style="light" />
         <View style={styles.header}>
-          <View style={{ width: "10%" }}>
+          <View style={{ width: "10%", paddingLeft: 5 }}>
             <TouchableOpacity onPress={() => props.navigation.openDrawer()}>
               <Entypo name="menu" size={28} color="white" />
             </TouchableOpacity>
@@ -41,16 +41,16 @@ const Home = (props) => {
           <View
             style={{
               width: "10%",
-              alignItems: "flex-end",
-              position: "absolute",
             }}
           ></View>
         </View>
         {/*HEADER section ends*/}
         <View style={styles.search}>
-          <FontAwesome name="search" size={24} color="#929695" />
-          <TextInput placeholder="Search" style={styles.input} />
-          <View style={{ width: "10%", justifyContent: "flex-end" }}>
+          <View style={{ width: "90%", flexDirection: "row" }}>
+            <FontAwesome name="search" size={24} color="#929695" />
+            <TextInput placeholder="Search" style={styles.input} />
+          </View>
+          <View style={{ width: "10%", jalignItems: "flex-end" }}>
             <MaterialIcons name="keyboard-voice" size={28} color="#929695" />
           </View>
         </View>
@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "black",
     alignItems: "center",
+    paddingTop:30
   },
   header: {
     backgroundColor: "#FF2871",
@@ -137,6 +138,7 @@ const styles = StyleSheet.create({
   search: {
     backgroundColor: "white",
     width: "80%",
+    maxWidth:1000,
     height: 40,
     alignItems: "center",
     margin: 13,
