@@ -59,6 +59,7 @@ export class MusicCatog extends Component {
           Categories
         </Text>
         <FlatList
+          showsHorizontalScrollIndicator={false}
           keyExtractor={(item) => item.id}
           data={categories}
           horizontal={true}
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
   container: {
     height: 175,
     width: "100%",
-    marginBottom:20,
+    marginBottom:50,
     paddingHorizontal:5
   },
   surface: {

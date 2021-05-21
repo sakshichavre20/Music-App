@@ -74,6 +74,7 @@ export class RecentlyPlayed extends Component {
           Recently Played
         </Text>
         <FlatList
+          showsHorizontalScrollIndicator={false}
           keyExtractor={(item) => item.id}
           data={categories}
           horizontal={true}
@@ -81,11 +82,17 @@ export class RecentlyPlayed extends Component {
             return (
               <Surface style={styles.surface}>
                 <ImageBackground
-                imageStyle={{borderRadius:10}}
-                  style={{ width: 120, height: 120, borderRadius: 10, justifyContent:'flex-end', padding:7 }}
+                  imageStyle={{ borderRadius: 10 }}
+                  style={{
+                    width: 120,
+                    height: 120,
+                    borderRadius: 10,
+                    justifyContent: "flex-end",
+                    padding: 7,
+                  }}
                   source={item.img}
                 >
-                    <AntDesign name="play" color="white" size={24}/>
+                  <AntDesign name="play" color="white" size={24} />
                 </ImageBackground>
                 <Text
                   style={{ color: "white", fontSize: 15, fontWeight: "300" }}
@@ -106,7 +113,7 @@ const styles = StyleSheet.create({
     height: 190,
     width: "100%",
     paddingHorizontal: 5,
-    marginBottom: 20,
+    marginBottom: 50,
   },
   surface: {
     width: 130,

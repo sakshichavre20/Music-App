@@ -1,73 +1,172 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { Ionicons } from "react-native-vector-icons";
+import {
+  Ionicons,
+  Entypo,
+  FontAwesome5,
+  MaterialIcons,
+  MaterialCommunityIcons,
+} from "react-native-vector-icons";
 
 const Setting = (props) => {
   return (
-    <View style={styles.conatiner}>
+    <View style={styles.container}>
+{/* ------------------header section starts ------------------------*/}
       <View style={styles.header}>
-        <view style={{ width: "10%" }}>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
-            <Ionicons name="arrow-back" size={25} color="white" />
+        <View style={{ width: "10%" }}>
+          <TouchableOpacity onPress={() => props.navigation.openDrawer()}>
+            <Entypo name="menu" size={28} color="white" />
           </TouchableOpacity>
-        </view>
+        </View>
         <View style={{ width: "80%", alignItems: "center" }}>
           <Text style={{ color: "white", fontSize: 22, fontWeight: "bold" }}>
-            {" "}
-            Setting{" "}
+            Settings
           </Text>
         </View>
         <View style={{ width: "10%" }}></View>
       </View>
+{/* ---------------main container section starts -------------------*/}
       <View style={styles.mainContainer}>
-        <View style={styles.list}>
-          <TouchableOpacity
-            style={{ width: "100%", height: 50, backgroundColor: "#2d2d2d" }}
-            onPress={() => props.navigation.navigate("Equalizer")}
-          >
-            <View
-              style={{ width: "100%", height: 50, backgroundColor: "#2d2d2d" }}
-            >
-              <Text style={{ color: "white" }}>Equalizer</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.list}>
-          <TouchableOpacity
-            style={{ width: "100%", height: 50, backgroundColor: "#2d2d2d" }}
-            onPress={() => props.navigation.navigate("LanguagePref")}
-          >
-            <View
-              style={{ width: "100%", height: 50, backgroundColor: "#2d2d2d" }}
-            >
+        <Text
+          style={{
+            fontWeight: "600",
+            fontSize: 18,
+            color: "white",
+            padding: 5,
+          }}
+        >
+          Language Setting
+        </Text>
+{/* ------------------ Langauge Pref Starts --------------------------*/}
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate("LanguagePref")}
+        >
+          <View style={styles.list}>
+            <View style={{ width: "50%", justifyContent: "center" }}>
               <Text style={{ color: "white" }}>LanguagePref</Text>
             </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.list}>
-          <TouchableOpacity
-            style={{ width: "100%", height: 50, backgroundColor: "#2d2d2d" }}
-            onPress={() => props.navigation.navigate("DownloadQuality")}
-          >
             <View
-              style={{ width: "100%", height: 50, backgroundColor: "#2d2d2d" }}
+              style={{
+                alignItems: "flex-end",
+                width: "50%",
+                justifyContent: "center",
+                paddingRight:5
+              }}
             >
-              <Text style={{ color: "white" }}>DownloadQuality</Text>
+              <FontAwesome5 name="language" size={24} color="white" />
             </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.list}>
-          <TouchableOpacity
-            style={{ width: "100%", height: 50, backgroundColor: "#2d2d2d" }}
-            onPress={() => props.navigation.navigate("StreamingQuality")}
-          >
+          </View>
+        </TouchableOpacity>
+
+        <Text
+          style={{
+            fontWeight: "600",
+            fontSize: 18,
+            color: "white",
+            padding: 5,
+          }}
+        >
+          Music Quality
+        </Text>
+{/* -------------------- Equalizer section starts ------------------*/}
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate("Equalizer")}
+        >
+          <View style={styles.list}>
+            <View style={{ width: "50%", justifyContent: "center" }}>
+              <Text style={{ color: "white" }}>Equalizer</Text>
+            </View>
             <View
-              style={{ width: "100%", height: 50, backgroundColor: "#2d2d2d" }}
+              style={{
+                width: "50%",
+                alignItems: "flex-end",
+                justifyContent: "center",
+              }}
+            >
+              <MaterialIcons name="equalizer" size={24} color="white" />
+            </View>
+          </View>
+        </TouchableOpacity>
+
+{/* -------------- Streaming Quality section starts ----------------*/}
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate("StreamingQuality")}
+        >
+          <View style={styles.list}>
+            <View
+              style={{
+                width: "50%",
+
+                justifyContent: "center",
+              }}
             >
               <Text style={{ color: "white" }}>StreamingQuality</Text>
             </View>
-          </TouchableOpacity>
-        </View>
+            <View
+              style={{
+                width: "50%",
+                justifyContent: "flex-end",
+                flexDirection: "row",
+              }}
+            >
+              <MaterialCommunityIcons
+                name="quality-high"
+                size={24}
+                color="white"
+              />
+              <MaterialCommunityIcons
+                name="quality-medium"
+                size={24}
+                color="white"
+              />
+              <MaterialCommunityIcons
+                name="quality-low"
+                size={24}
+                color="white"
+              />
+            </View>
+          </View>
+        </TouchableOpacity>
+{/* ---------------Download quality section starts -----------------*/}
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate("DownloadQuality")}
+        >
+          <View style={styles.list}>
+            <View
+              style={{
+                width: "50%",
+
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ color: "white" }}>DownloadQuality</Text>
+            </View>
+            <View
+              style={{
+                width: "50%",
+                justifyContent: "flex-end",
+
+                flexDirection: "row",
+              }}
+            >
+              <MaterialCommunityIcons
+                name="quality-high"
+                size={24}
+                color="white"
+              />
+              <MaterialCommunityIcons
+                name="quality-medium"
+                size={24}
+                color="white"
+              />
+              <MaterialCommunityIcons
+                name="quality-low"
+                size={24}
+                color="white"
+              />
+            </View>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -76,13 +175,13 @@ const Setting = (props) => {
 export default Setting;
 
 const styles = StyleSheet.create({
-  conatiner: {
+  container: {
     flex: 1,
     backgroundColor: "black",
   },
   mainContainer: {
     flex: 1,
-    alignItems: "center",
+    
   },
   header: {
     backgroundColor: "#FF2871",
@@ -95,5 +194,9 @@ const styles = StyleSheet.create({
   list:{
     width:'100%',
     borderBottomWidth:2,
+    backgroundColor:'#2d2d2d',
+    height:50,
+    padding:10,
+    flexDirection:'row'
   }
 });

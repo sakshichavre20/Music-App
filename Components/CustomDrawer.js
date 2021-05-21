@@ -55,7 +55,7 @@ export function DrawerContent(props) {
               icon={({ color, size }) => (
                 <Ionicons name="musical-notes" color="grey" size={size} />
               )}
-              label={() => <Text style={{ color: "#FF2871" }}>Music</Text>}
+              label={() => <Text style={{ color: "#FF2871", fontSize:18 }}>Music</Text>}
               activeBackgroundColor="red"
               pressColor="pink"
               style={{}}
@@ -67,7 +67,7 @@ export function DrawerContent(props) {
               icon={({ color, size }) => (
                 <Ionicons name="settings" color="grey" size={25} />
               )}
-              label={() => <Text style={{ color: "#FF2871" }}>Settings</Text>}
+              label={() => <Text style={{ color: "#FF2871", fontSize:18 }}>Settings</Text>}
               pressColor="pink"
               style={{}}
               onPress={() => {

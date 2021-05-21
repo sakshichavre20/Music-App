@@ -75,6 +75,7 @@ export class Trending extends Component {
           Trending
         </Text>
         <FlatList
+          showsHorizontalScrollIndicator={true}
           keyExtractor={(item) => item.id}
           data={categories}
           horizontal={true}
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
     height: 190,
     width: "100%",
     paddingHorizontal: 5,
-    marginBottom: 20,
+    marginBottom: 50,
   },
   surface: {
     width: 130,
