@@ -25,6 +25,9 @@ import MyFav from './MyMusic/MyFav';
 import MyDownloads from './MyMusic/MyDownloads';
 import MyLibraray from './MyMusic/MyLibraray';
 import Navigation from './Settings/Navigation';
+import CustomerSupport from './Settings/HelpAndSupport/CustomerSupport';
+import Update from './Settings/HelpAndSupport/Update';
+
 
 
 
@@ -106,6 +109,20 @@ export default function App() {
         <Stack.Screen
           name="Navigation"
           component={Navigation}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="CustomerSupport"
+          component={CustomerSupport}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Update"
+          component={Update}
           options={{
             headerShown: false,
           }}

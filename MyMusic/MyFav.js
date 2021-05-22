@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from 'react-native'
 
 const MyFav = (props) => {
     return (
-        <View style={styles.conatiner}>
-            <Text>My Fav</Text>
+        <View style={styles.container}>
+            <Text style={{color:'white'}}>My Fav</Text>
         </View>
     )
 }
@@ -12,7 +12,10 @@ const MyFav = (props) => {
 export default MyFav
 
 const styles = StyleSheet.create({
-    conatiner:{
-        flex:1
+    container:{
+        flex:1,
+        backgroundColor:'black',
+        justifyContent:'center',
+        alignItems:'center',
     }
 })

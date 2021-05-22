@@ -14,6 +14,7 @@ export default StreamingQuality
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        alignItems:'center'
+        alignItems:'center',
+        backgroundColor:'black',
     }
 })

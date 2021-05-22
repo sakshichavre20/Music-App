@@ -1,4 +1,4 @@
-import React,{useLayoutEffect} from 'react'
+import React, { useLayoutEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,58 +7,56 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-import {StatusBar} from 'expo-status-bar';
+import { StatusBar } from "expo-status-bar";
 import {
   FontAwesome,
   Ionicons,
   MaterialIcons,
-  Entypo
+  Entypo,
 } from "react-native-vector-icons";
 
-import MusicList from '../CustomList/MusicList'
-import MusicCatog from '../Home/MusicCatog';
-import RecentlyPlayed from '../Home/RecentlyPlayed';
-import TodaysPick from '../Home/TodaysPick';
-import Trending from '../Home/Trending';
-
-
+import MusicList from "../CustomList/MusicList";
+import MusicCatog from "../Home/MusicCatog";
+import RecentlyPlayed from "../Home/RecentlyPlayed";
+import TodaysPick from "../Home/TodaysPick";
+import Trending from "../Home/Trending";
 
 const Home = (props) => {
-    return (
-      <View style={styles.conatiner}>
-        <StatusBar style="light" />
-        <View style={styles.header}>
-          <View style={{ width: "10%", paddingLeft: 5 }}>
-            <TouchableOpacity onPress={() => props.navigation.openDrawer()}>
-              <Entypo name="menu" size={28} color="white" />
-            </TouchableOpacity>
-          </View>
-          <View style={{ width: "80%", alignItems: "center" }}>
-            <Text style={{ color: "white", fontSize: 23, fontWeight: "bold" }}>
-              Music
-            </Text>
-          </View>
-          <View
-            style={{
-              width: "10%",
-            }}
-          ></View>
+  return (
+    <View style={styles.conatiner}>
+      <StatusBar style="light" />
+      <View style={styles.header}>
+        <View style={{ width: "10%", paddingLeft: 5 }}>
+          <TouchableOpacity onPress={() => props.navigation.openDrawer()}>
+            <Entypo name="menu" size={28} color="white" />
+          </TouchableOpacity>
         </View>
-        {/*HEADER section ends*/}
-        <View style={styles.search}>
-          <View style={{ width: "90%", flexDirection: "row" }}>
-            <FontAwesome name="search" size={24} color="#929695" />
-            <TextInput placeholder="Search" style={styles.input} />
-          </View>
-          <View style={{ width: "10%", jalignItems: "flex-end" }}>
-            <MaterialIcons name="keyboard-voice" size={28} color="#929695" />
-          </View>
+        <View style={{ width: "80%", alignItems: "center" }}>
+          <Text style={{ color: "white", fontSize: 23, fontWeight: "bold" }}>
+            Music
+          </Text>
         </View>
+        <View
+          style={{
+            width: "10%",
+          }}
+        ></View>
+      </View>
+      {/*HEADER section ends*/}
+      <View style={styles.search}>
+        <View style={{ width: "90%", flexDirection: "row" }}>
+          <FontAwesome name="search" size={24} color="#929695" />
+          <TextInput placeholder="Search" style={styles.input} />
+        </View>
+        <View style={{ width: "10%", jalignItems: "flex-end" }}>
+          <MaterialIcons name="keyboard-voice" size={28} color="#929695" />
+        </View>
+      </View>
 
-        {/*SEARCH section ends*/}
-        <ScrollView style={{ flex: 1, width: "100%" }}>
-          {/*1st Scroll List*/}
-          {/*
+      {/*SEARCH section ends*/}
+      <ScrollView style={{ flex: 1, width: "100%" }}>
+        {/*1st Scroll List*/}
+        {/*
           <View style={{ width: "100%", height: 200 }}>
             <View style={{ width: "100%", padding: 5 }}>
               <Text
@@ -108,23 +106,23 @@ const Home = (props) => {
             </ScrollView>
           </View>
           */}
-          <MusicCatog navigation={props.navigation} />
-          <RecentlyPlayed navigation={props.navigation} />
-          <TodaysPick navigation={props.navigation} />
-          <Trending navigation={props.navigation} />
-        </ScrollView>
-      </View>
-    );
-}
+        <MusicCatog navigation={props.navigation} />
+        <RecentlyPlayed navigation={props.navigation} />
+        <TodaysPick navigation={props.navigation} />
+        <Trending navigation={props.navigation} />
+      </ScrollView>
+    </View>
+  );
+};
 
-export default Home
+export default Home;
 
 const styles = StyleSheet.create({
   conatiner: {
     flex: 1,
     backgroundColor: "black",
     alignItems: "center",
-    paddingTop:30
+    paddingTop: 40,
   },
   header: {
     backgroundColor: "#FF2871",
@@ -133,23 +131,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    
   },
   search: {
     backgroundColor: "white",
     width: "80%",
-    maxWidth:1000,
+    maxWidth: 1000,
     height: 40,
     alignItems: "center",
     margin: 13,
     flexDirection: "row",
     borderRadius: 20,
-    paddingHorizontal:15
+    paddingHorizontal: 15,
   },
   input: {
     width: "82%",
-    paddingLeft:10,
-    fontSize:18,
+    paddingLeft: 10,
+    fontSize: 18,
   },
 });
-

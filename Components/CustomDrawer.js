@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { View, StyleSheet, TouchableOpacity , Alert} from "react-native";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import {
   Avatar,
@@ -15,17 +15,21 @@ import {
   MaterialCommunityIcons,
   FontAwesome,
   Ionicons,
+  MaterialIcons
 } from "react-native-vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { ProgressBar, Colors  } from 'react-native-paper'
 
 export function DrawerContent(props) {
   return (
     <View style={{ flex: 1, backgroundColor: "black" }}>
       <DrawerContentScrollView {...props}>
+        {/* --------------Drawer content ----------------------- */}
         <View style={styles.drawerContent}>
+          {/* --------------User Info ----------------------------- */}
           <View style={styles.userinfo}>
             <LinearGradient
-              style={{padding:10, flex:1}}
+              style={{ padding: 10, flex: 1 }}
               colors={["#FF3C7E", "#FC2C72", "#ff005c", "#FB0029"]}
             >
               <TouchableOpacity
@@ -49,13 +53,16 @@ export function DrawerContent(props) {
               </TouchableOpacity>
             </LinearGradient>
           </View>
-
+          {/* -------------------------Drawer Section ----------------------- */}
           <Drawer.Section style={styles.section}>
+            {/* -------------------------Music ----------------------- */}
             <DrawerItem
               icon={({ color, size }) => (
                 <Ionicons name="musical-notes" color="#FF2871" size={size} />
               )}
-              label={() => <Text style={{ color: "#FF2871", fontSize:18 }}>Music</Text>}
+              label={() => (
+                <Text style={{ color: "white", fontSize: 18 }}>Music</Text>
+              )}
               activeBackgroundColor="red"
               pressColor="pink"
               style={{}}
@@ -63,15 +70,57 @@ export function DrawerContent(props) {
                 props.navigation.navigate("Home");
               }}
             />
+            {/* ------------------------- Settings ----------------------- */}
             <DrawerItem
               icon={({ color, size }) => (
                 <Ionicons name="settings" color="#FF2871" size={25} />
               )}
-              label={() => <Text style={{ color: "#FF2871", fontSize:18 }}>Settings</Text>}
+              label={() => (
+                <Text style={{ color: "white", fontSize: 18 }}>Settings</Text>
+              )}
               pressColor="pink"
               style={{}}
               onPress={() => {
                 props.navigation.navigate("Setting");
+              }}
+            />
+            {/* ------------------------- Storage ----------------------- */}
+            <DrawerItem
+              icon={({ color, size }) => (
+                <MaterialIcons name="storage" color="#FF2871" size={25} />
+              )}
+              label={() => (
+                <Text style={{ color: "white", fontSize: 18 }}>Storage</Text>
+              )}
+              pressColor="pink"
+              style={{}}
+              onPress={() => {}}
+            />
+            <ProgressBar
+              progress={0.2}
+              color={"#FF2871"}
+              style={{ width: "70%", marginLeft: 20 }}
+            />
+            <View style={{ width: "100%", flexDirection: "row" }}>
+              <Text style={{ color: "white", marginLeft: 20, fontSize: 12 }}>
+                24.1 GB
+              </Text>
+              <Text style={{ color: "grey", marginLeft: 80, fontSize: 12 }}>
+                101.8 GB free
+              </Text>
+            </View>
+            {/* ------------------------- Clear Cache ----------------------- */}
+            <DrawerItem
+              icon={({ color, size }) => (
+                <MaterialCommunityIcons name="broom" color="#FF2871" size={25} />
+              )}
+              label={() => (
+                <Text style={{ color: "white", fontSize: 18 }}>Clear Cache</Text>
+              )}
+              pressColor="pink"
+              style={{}}
+              onPress={() => {
+                Alert.alert('Cleared chache')
               }}
             />
           </Drawer.Section>
@@ -82,19 +131,24 @@ export function DrawerContent(props) {
 }
 
 const styles = StyleSheet.create({
-  drawerContent: {
-    
-  },
+  drawerContent: {},
   userinfo: {
     flexDirection: "row",
-    
-    backgroundColor:'#FF2871'
-    
+
+    backgroundColor: "#FF2871",
   },
   section: {
-    paddingTop: 220,
+    paddingTop: 180,
   },
-  bottomDrawer: {
-    marginBottom: 15,
+  clearcache: {
+    backgroundColor: "#FF2871",
+    height:40,
+    width:150,
+    marginLeft:50,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius:10,
+    marginTop:30
+
   },
 });

@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 const MyLibraray = (props) => {
     return (
         <View style={styles.container}>
-            <Text>MyLibrary</Text>
+            <Text style={{color:'white'}}>MyLibrary</Text>
         </View>
     )
 }
@@ -12,7 +12,10 @@ const MyLibraray = (props) => {
 export default MyLibraray
 
 const styles = StyleSheet.create({
-    conatiner:{
+    container:{
         flex:1,
+        backgroundColor:'black',
+        alignItems:'center',
+        justifyContent:'center',
     }
 })

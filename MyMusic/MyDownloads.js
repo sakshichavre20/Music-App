@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 const MyDownloads = (props) => {
     return (
         <View style={styles.container}>
-            <Text style={{color:'black'}}>My Downloads</Text>
+            <Text style={{color:'white'}}>My Downloads</Text>
         </View>
     )
 }
@@ -12,7 +12,10 @@ const MyDownloads = (props) => {
 export default MyDownloads
 
 const styles = StyleSheet.create({
-    conatiner:{
+    container:{
         flex:1,
-    }
+        backgroundColor:'black',
+        alignItems:'center',
+        justifyContent:'center',
+    }    
 })
