@@ -24,6 +24,7 @@ import DownloadQuality from './Settings/DownloadQuality';
 import MyFav from './MyMusic/MyFav';
 import MyDownloads from './MyMusic/MyDownloads';
 import MyLibraray from './MyMusic/MyLibraray';
+import Navigation from './Settings/Navigation';
 
 
 
@@ -98,6 +99,13 @@ export default function App() {
         <Stack.Screen
           name="MyLibrary"
           component={MyLibraray}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Navigation"
+          component={Navigation}
           options={{
             headerShown: false,
           }}

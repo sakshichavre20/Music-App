@@ -1,17 +1,30 @@
-import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import React, {useState} from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Switch,
+  ScrollView,
+} from "react-native";
+
 import {
   Ionicons,
   Entypo,
   FontAwesome5,
   MaterialIcons,
   MaterialCommunityIcons,
+  Feather,
 } from "react-native-vector-icons";
 
 const Setting = (props) => {
+
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+
   return (
     <View style={styles.container}>
-{/* ------------------header section starts ------------------------*/}
+      {/* ------------------header section starts ------------------------*/}
       <View style={styles.header}>
         <View style={{ width: "10%" }}>
           <TouchableOpacity onPress={() => props.navigation.openDrawer()}>
@@ -25,8 +38,8 @@ const Setting = (props) => {
         </View>
         <View style={{ width: "10%" }}></View>
       </View>
-{/* ---------------main container section starts -------------------*/}
-      <View style={styles.mainContainer}>
+      {/* ---------------main container section starts -------------------*/}
+      <ScrollView style={{width:'100%'}}>
         <Text
           style={{
             fontWeight: "600",
@@ -37,27 +50,29 @@ const Setting = (props) => {
         >
           Language Setting
         </Text>
-{/* ------------------ Langauge Pref Starts --------------------------*/}
+        {/* ------------------ Langauge Pref Starts --------------------------*/}
         <TouchableOpacity
           onPress={() => props.navigation.navigate("LanguagePref")}
         >
           <View style={styles.list}>
             <View style={{ width: "50%", justifyContent: "center" }}>
-              <Text style={{ color: "white" }}>LanguagePref</Text>
+              <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
+                Language Preference
+              </Text>
             </View>
             <View
               style={{
                 alignItems: "flex-end",
                 width: "50%",
                 justifyContent: "center",
-                paddingRight:5
+                paddingRight: 5,
               }}
             >
               <FontAwesome5 name="language" size={24} color="white" />
             </View>
           </View>
         </TouchableOpacity>
-
+        {/* ------------------ Music Quality Starts --------------------------*/}
         <Text
           style={{
             fontWeight: "600",
@@ -68,13 +83,15 @@ const Setting = (props) => {
         >
           Music Quality
         </Text>
-{/* -------------------- Equalizer section starts ------------------*/}
+        {/* -------------------- Equalizer section starts ------------------*/}
         <TouchableOpacity
           onPress={() => props.navigation.navigate("Equalizer")}
         >
           <View style={styles.list}>
             <View style={{ width: "50%", justifyContent: "center" }}>
-              <Text style={{ color: "white" }}>Equalizer</Text>
+              <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
+                Equalizer
+              </Text>
             </View>
             <View
               style={{
@@ -88,7 +105,7 @@ const Setting = (props) => {
           </View>
         </TouchableOpacity>
 
-{/* -------------- Streaming Quality section starts ----------------*/}
+        {/* -------------- Streaming Quality section starts ----------------*/}
         <TouchableOpacity
           onPress={() => props.navigation.navigate("StreamingQuality")}
         >
@@ -100,7 +117,9 @@ const Setting = (props) => {
                 justifyContent: "center",
               }}
             >
-              <Text style={{ color: "white" }}>StreamingQuality</Text>
+              <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
+                StreamingQuality
+              </Text>
             </View>
             <View
               style={{
@@ -117,7 +136,7 @@ const Setting = (props) => {
               <MaterialCommunityIcons
                 name="quality-medium"
                 size={24}
-                color="white"
+                color="#FF2871"
               />
               <MaterialCommunityIcons
                 name="quality-low"
@@ -127,7 +146,7 @@ const Setting = (props) => {
             </View>
           </View>
         </TouchableOpacity>
-{/* ---------------Download quality section starts -----------------*/}
+        {/* ---------------Download quality section starts -----------------*/}
         <TouchableOpacity
           onPress={() => props.navigation.navigate("DownloadQuality")}
         >
@@ -139,7 +158,9 @@ const Setting = (props) => {
                 justifyContent: "center",
               }}
             >
-              <Text style={{ color: "white" }}>DownloadQuality</Text>
+              <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
+                DownloadQuality
+              </Text>
             </View>
             <View
               style={{
@@ -152,7 +173,7 @@ const Setting = (props) => {
               <MaterialCommunityIcons
                 name="quality-high"
                 size={24}
-                color="white"
+                color="#FF2871"
               />
               <MaterialCommunityIcons
                 name="quality-medium"
@@ -167,7 +188,113 @@ const Setting = (props) => {
             </View>
           </View>
         </TouchableOpacity>
-      </View>
+        {/* DATA USAGE SECTION STARTS */}
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <Text
+            style={{
+              fontWeight: "600",
+              fontSize: 18,
+              color: "white",
+              padding: 5,
+            }}
+          >
+            Data Usage
+          </Text>
+          <Text
+            style={{ color: "grey", padding: 5, marginTop: 3, marginLeft: 10 }}
+          >
+            219.08Mb
+          </Text>
+        </View>
+        {/* ---------------Data Saver section starts -----------------*/}
+
+        <View style={styles.list}>
+          <View style={{ width: "80%", justifyContent: "center" }}>
+            <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
+              Data Saver
+            </Text>
+            <Text style={{ color: "grey", fontSize: 13 }}>
+              Sets your music quality to Low and disables artist canvases.
+            </Text>
+          </View>
+          <View
+            style={{
+              alignItems: "flex-end",
+              width: "20%",
+              justifyContent: "center",
+              paddingRight: 5,
+            }}
+          >
+            <Switch
+              trackColor={{ false: "#767577", true: "pink" }}
+              thumbColor={isEnabled ? "#FF2871" : "#f4f3f4"}
+              ios_backgroundColor="#3e3e3e"
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+            />
+          </View>
+        </View>
+
+        {/* ---------------Data Usage Warning section starts -----------------*/}
+
+        <View style={styles.list}>
+          <View style={{ width: "50%", justifyContent: "center" }}>
+            <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
+              Data Usage Warning
+            </Text>
+          </View>
+          <View
+            style={{
+              alignItems: "flex-end",
+              width: "50%",
+              justifyContent: "center",
+              paddingRight: 5,
+            }}
+          >
+            <Switch
+              trackColor={{ false: "#767577", true: "pink" }}
+              thumbColor={isEnabled ? "#FF2871" : "#f4f3f4"}
+              ios_backgroundColor="#3e3e3e"
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+            />
+          </View>
+        </View>
+        {/* ---------------Connect to apps section starts -----------------*/}
+        <Text
+          style={{
+            color: "white",
+            fontSize: 16,
+            fontWeight: "600",
+            padding: 5,
+          }}
+        >
+          Connect To Apps
+        </Text>
+        <TouchableOpacity onPress={() => props.navigation.navigate('Navigation')}>
+          <View style={styles.list}>
+            <View style={{ width: "80%", justifyContent: "center" }}>
+              <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
+                Navigation
+              </Text>
+              <Text style={{ color: "grey", fontSize: 13 }}>
+                Connect to Navigation apps.
+              </Text>
+            </View>
+            <View
+              style={{
+                alignItems: "flex-end",
+                width: "20%",
+                justifyContent: "center",
+                paddingRight: 5,
+              }}
+            >
+              <Feather name="navigation" size={24} color='white'/>
+            </View>
+          </View>
+        </TouchableOpacity>
+        {/* ---------------Connect to apps section starts -----------------*/}
+      </ScrollView>
     </View>
   );
 };
@@ -178,12 +305,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "black",
-    paddingTop: 30
+    paddingTop: 40
   },
-  mainContainer: {
-    flex: 1,
-    
-  },
+  
   header: {
     backgroundColor: "#FF2871",
     alignItems: "center",
@@ -196,8 +320,8 @@ const styles = StyleSheet.create({
     width:'100%',
     borderBottomWidth:2,
     backgroundColor:'#2d2d2d',
-    height:50,
-    padding:10,
+    height:60,
+    padding:5,
     flexDirection:'row'
   }
 });
