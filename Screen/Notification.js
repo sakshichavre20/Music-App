@@ -1,22 +1,22 @@
-import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity} from 'react-native'
-import { Ionicons } from "react-native-vector-icons"; 
-const Notification = ({navigation}) => {
-    return (
-      <View style={styles.conatiner}>
-        <View style={styles.header}>
-          <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-            <Ionicons name="arrow-back" size={28} color="#FF2871" />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.mainContainer}>
-          <Text style={{ color: "white" }}>Notification</Text>
-        </View>
+import React from "react";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { Ionicons } from "react-native-vector-icons";
+const Notification = ({ navigation }) => {
+  return (
+    <View style={styles.conatiner}>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <Ionicons name="arrow-back" size={28} color="#FF2871" />
+        </TouchableOpacity>
       </View>
-    );
-}
+      <View style={styles.mainContainer}>
+        <Text style={{ color: "white" }}>Notification</Text>
+      </View>
+    </View>
+  );
+};
 
-export default Notification
+export default Notification;
 
 const styles = StyleSheet.create({
   conatiner: {

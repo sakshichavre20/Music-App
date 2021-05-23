@@ -46,66 +46,32 @@ const Setting = (props) => {
       </View>
       {/* --------------------- main container section starts ----------------------------*/}
       <ScrollView style={{ width: "100%" }}>
-        <Text
-          style={{
-            fontWeight: "600",
-            fontSize: 18,
-            color: "white",
-            padding: 5,
-          }}
-        >
-          Language Setting
-        </Text>
-        {/* -------------------------- Langauge Pref Starts --------------------------------*/}
+        {/* --------------------- Language setting ----------------------------*/}
+        <Text style={styles.headingText}>Language Setting</Text>
+        {/* -------------------------- Langauge Preference Starts --------------------------------*/}
         <TouchableOpacity
           onPress={() => props.navigation.navigate("LanguagePref")}
         >
           <View style={styles.list}>
             <View style={{ width: "50%", justifyContent: "center" }}>
-              <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
-                Language Preference
-              </Text>
+              <Text style={styles.subtitle}>Language Preference</Text>
             </View>
-            <View
-              style={{
-                alignItems: "flex-end",
-                width: "50%",
-                justifyContent: "center",
-                paddingRight: 5,
-              }}
-            >
+            <View style={styles.endicon}>
               <FontAwesome5 name="language" size={24} color="white" />
             </View>
           </View>
         </TouchableOpacity>
         {/* -------------------------------- Music Quality Starts --------------------------*/}
-        <Text
-          style={{
-            fontWeight: "600",
-            fontSize: 18,
-            color: "white",
-            padding: 5,
-          }}
-        >
-          Music Quality
-        </Text>
+        <Text style={styles.headingText}>Music Quality</Text>
         {/* ------------------------------------ Equalizer section starts ------------------*/}
         <TouchableOpacity
           onPress={() => props.navigation.navigate("Equalizer")}
         >
           <View style={styles.list}>
             <View style={{ width: "50%", justifyContent: "center" }}>
-              <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
-                Equalizer
-              </Text>
+              <Text style={styles.subtitle}>Equalizer</Text>
             </View>
-            <View
-              style={{
-                width: "50%",
-                alignItems: "flex-end",
-                justifyContent: "center",
-              }}
-            >
+            <View style={styles.endicon}>
               <MaterialIcons name="equalizer" size={24} color="white" />
             </View>
           </View>
@@ -121,9 +87,7 @@ const Setting = (props) => {
               justifyContent: "center",
             }}
           >
-            <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
-              StreamingQuality
-            </Text>
+            <Text style={styles.subtitle}>StreamingQuality</Text>
           </View>
           <View
             style={{
@@ -166,15 +130,12 @@ const Setting = (props) => {
               justifyContent: "center",
             }}
           >
-            <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
-              DownloadQuality
-            </Text>
+            <Text style={styles.subtitle}>DownloadQuality</Text>
           </View>
           <View
             style={{
               width: "50%",
               justifyContent: "flex-end",
-
               flexDirection: "row",
             }}
           >
@@ -203,13 +164,22 @@ const Setting = (props) => {
         </View>
 
         {/* ------------------------DATA USAGE SECTION STARTS ------------------------------*/}
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            borderBottomColor: "#2d2d2d",
+            borderBottomWidth: 0.5,
+            borderTopWidth: 0.5,
+            borderTopColor: "#2d2d2d",
+          }}
+        >
           <Text
             style={{
               fontWeight: "600",
               fontSize: 18,
               color: "white",
-              padding: 5,
+              padding: 10,
             }}
           >
             Data Usage
@@ -223,20 +193,19 @@ const Setting = (props) => {
         {/* ----------------------------Data Saver section starts --------------------------*/}
 
         <View style={styles.list}>
-          <View style={{ width: "80%", justifyContent: "center" }}>
-            <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
-              Data Saver
-            </Text>
+          <View
+            style={{ width: "50%", justifyContent: "center", paddingTop: 5 }}
+          >
+            <Text style={styles.subtitle}>Data Saver</Text>
             <Text style={{ color: "grey", fontSize: 13 }}>
-              Sets your music quality to Low and disables artist canvases.
+              Sets your music quality Low and disables artist canvases.
             </Text>
           </View>
           <View
             style={{
               alignItems: "flex-end",
-              width: "20%",
+              width: "50%",
               justifyContent: "center",
-              paddingRight: 5,
             }}
           >
             <Switch
@@ -253,16 +222,13 @@ const Setting = (props) => {
 
         <View style={styles.list}>
           <View style={{ width: "50%", justifyContent: "center" }}>
-            <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
-              Data Usage Warning
-            </Text>
+            <Text style={styles.subtitle}>Data Usage Warning</Text>
           </View>
           <View
             style={{
               alignItems: "flex-end",
               width: "50%",
               justifyContent: "center",
-              paddingRight: 5,
             }}
           >
             <Switch
@@ -275,24 +241,13 @@ const Setting = (props) => {
           </View>
         </View>
         {/* -----------------------Connect to apps section starts --------------------------*/}
-        <Text
-          style={{
-            color: "white",
-            fontSize: 16,
-            fontWeight: "600",
-            padding: 5,
-          }}
-        >
-          Connect To Apps
-        </Text>
+        <Text style={styles.headingText}>Connect To Apps</Text>
         <TouchableOpacity
           onPress={() => props.navigation.navigate("Navigation")}
         >
           <View style={styles.list}>
             <View style={{ width: "80%", justifyContent: "center" }}>
-              <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
-                Navigation
-              </Text>
+              <Text style={styles.subtitle}>Navigation</Text>
               <Text style={{ color: "grey", fontSize: 13 }}>
                 Connect to Navigation apps.
               </Text>
@@ -312,9 +267,7 @@ const Setting = (props) => {
         {/* ----------------------- Car play section starts --------------------------------*/}
         <View style={styles.list}>
           <View style={{ width: "80%", justifyContent: "center" }}>
-            <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
-              Car Mode
-            </Text>
+            <Text style={styles.subtitle}>Car Mode</Text>
             <Text style={{ color: "grey", fontSize: 13 }}>
               Turn on your auto play.
             </Text>
@@ -324,7 +277,6 @@ const Setting = (props) => {
               alignItems: "flex-end",
               width: "20%",
               justifyContent: "center",
-              paddingRight: 5,
             }}
           >
             <Switch
@@ -341,9 +293,7 @@ const Setting = (props) => {
         <TouchableOpacity onPress={() => {}}>
           <View style={styles.list}>
             <View style={{ width: "80%", justifyContent: "center" }}>
-              <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
-                Sleep Mode
-              </Text>
+              <Text style={styles.subtitle}>Sleep Mode</Text>
               <Text style={{ color: "grey", fontSize: 13 }}>
                 Set Timer for your music.
               </Text>
@@ -353,7 +303,7 @@ const Setting = (props) => {
                 alignItems: "flex-end",
                 width: "20%",
                 justifyContent: "center",
-                padding: 5,
+
                 flexDirection: "column",
               }}
             >
@@ -369,26 +319,16 @@ const Setting = (props) => {
           </View>
         </TouchableOpacity>
         {/* ------------------------- Help and support -------------------------------------*/}
-        <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
-          Help And Support
-        </Text>
+        <Text style={styles.headingText}>Help And Support</Text>
         {/* ------------------------- Customer Support -------------------------------------*/}
         <TouchableOpacity
           onPress={() => props.navigation.navigate("CustomerSupport")}
         >
           <View style={styles.list}>
             <View style={{ width: "50%", justifyContent: "center" }}>
-              <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
-                Customer Support
-              </Text>
+              <Text style={styles.subtitle}>Customer Support</Text>
             </View>
-            <View
-              style={{
-                width: "50%",
-                alignItems: "flex-end",
-                justifyContent: "center",
-              }}
-            >
+            <View style={styles.endicon}>
               <AntDesign name="customerservice" size={28} color="white" />
             </View>
           </View>
@@ -397,17 +337,9 @@ const Setting = (props) => {
         <TouchableOpacity onPress={() => props.navigation.navigate("Update")}>
           <View style={styles.list}>
             <View style={{ width: "50%", justifyContent: "center" }}>
-              <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
-                Updates
-              </Text>
+              <Text style={styles.subtitle}>Updates</Text>
             </View>
-            <View
-              style={{
-                width: "50%",
-                alignItems: "flex-end",
-                justifyContent: "center",
-              }}
-            >
+            <View style={styles.endicon}>
               <MaterialIcons name="update" size={28} color="white" />
             </View>
           </View>
@@ -437,8 +369,28 @@ const styles = StyleSheet.create({
   list: {
     width: "100%",
     borderBottomWidth: 2,
-    height: 60,
-    padding: 5,
+    height: 50,
+    padding: 10,
     flexDirection: "row",
+  },
+  headingText: {
+    fontWeight: "600",
+    fontSize: 18,
+    color: "white",
+    padding: 10,
+    borderBottomColor: "#2d2d2d",
+    borderBottomWidth: 0.5,
+    borderTopWidth: 0.5,
+    borderTopColor: "#2d2d2d",
+  },
+  subtitle: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "600",
+  },
+  endicon: {
+    width: "50%",
+    alignItems: "flex-end",
+    justifyContent: "center",
   },
 });

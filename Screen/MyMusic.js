@@ -9,11 +9,10 @@ import {
   MaterialCommunityIcons,
 } from "react-native-vector-icons";
 
-
 const MyMusic = (props) => {
   return (
     <View style={styles.container}>
-      {/* HEADER SECTION */}
+      {/* ----------------------------------------HEADER SECTION--------------------------------------- */}
       <View style={styles.header}>
         <View style={{ alignItems: "center", width: "100%" }}>
           <Text style={{ fontWeight: "bold", fontSize: 22, color: "white" }}>
@@ -21,105 +20,63 @@ const MyMusic = (props) => {
           </Text>
         </View>
       </View>
-      {/* MYDOWNLOADS SECTION */}
+      {/* ----------------------------------------MYDOWNLOADS SECTION--------------------------------- */}
       <TouchableOpacity
         activeOpacity={0.5}
         onPress={() => props.navigation.navigate("MyDownloads")}
         style={{ width: "100%", height: 50 }}
       >
         <View style={styles.list}>
-          <View style={{ width: "10%", justifyContent: "center" }}>
+          <View style={styles.starticon}>
             <MaterialCommunityIcons
               name="download-box"
               size={37}
               color="white"
             />
           </View>
-          <View
-            style={{
-              width: "80%",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Text style={{ fontSize: 18, fontWeight: "700", color: "white" }}>
-              MyDownloads
-            </Text>
-            <Text style={{ fontSize: 15, color: "white" }}>6 songs</Text>
+          <View style={styles.midpart}>
+            <Text style={styles.heading}>MyDownloads</Text>
+            <Text style={styles.subheading}>6 songs</Text>
           </View>
-          <View
-            style={{
-              width: "10%",
-              justifyContent: "center",
-              alignItems: "flex-end",
-            }}
-          >
+          <View style={styles.endicon}>
             <AntDesign name="right" size={30} color="white" />
           </View>
         </View>
       </TouchableOpacity>
-      {/* MY FAVOURITE SECTION */}
+      {/* ----------------------------------------MY FAVOURITE SECTION --------------------------------*/}
       <TouchableOpacity
         activeOpacity={0.5}
         onPress={() => props.navigation.navigate("MyFav")}
         style={{ width: "100%", height: 50 }}
       >
         <View style={styles.list}>
-          <View style={{ width: "10%", justifyContent: "center" }}>
+          <View style={styles.starticon}>
             <Ionicons name="heart" size={30} color="white" />
           </View>
-          <View
-            style={{
-              width: "80%",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Text style={{ fontSize: 18, fontWeight: "700", color: "white" }}>
-              My Favourite
-            </Text>
-            <Text style={{ fontSize: 15, color: "white" }}>8 songs</Text>
+          <View style={styles.midpart}>
+            <Text style={styles.heading}>My Favourite</Text>
+            <Text style={styles.subheading}>8 songs</Text>
           </View>
-          <View
-            style={{
-              width: "10%",
-              justifyContent: "center",
-              alignItems: "flex-end",
-            }}
-          >
+          <View style={styles.endicon}>
             <AntDesign name="right" size={30} color="white" />
           </View>
         </View>
       </TouchableOpacity>
-      {/*  MY LIBRARY SECTION  */}
+      {/* ------------------------------------------MY LIBRARY SECTION -------------------------------- */}
       <TouchableOpacity
         activeOpacity={0.5}
         onPress={() => props.navigation.navigate("MyLibrary")}
         style={{ width: "100%", height: 50 }}
       >
         <View style={styles.list}>
-          <View style={{ width: "10%", justifyContent: "center" }}>
+          <View style={styles.starticon}>
             <MaterialIcons name="library-music" size={30} color="white" />
           </View>
-          <View
-            style={{
-              width: "80%",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Text style={{ fontSize: 18, fontWeight: "700", color: "white" }}>
-              My Library
-            </Text>
-            <Text style={{ fontSize: 15, color: "white" }}>15 songs</Text>
+          <View style={styles.midpart}>
+            <Text style={styles.heading}>My Library</Text>
+            <Text style={styles.subheading}>15 songs</Text>
           </View>
-          <View
-            style={{
-              width: "10%",
-              justifyContent: "center",
-              alignItems: "flex-end",
-            }}
-          >
+          <View style={styles.endicon}>
             <AntDesign name="right" size={30} color="white" />
           </View>
         </View>
@@ -135,14 +92,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "black",
-    paddingTop:30
+    paddingTop: 30,
   },
   header: {
-    height: 60,
+    height: 50,
     width: "100%",
     backgroundColor: "#FF2871",
     alignItems: "center",
     flexDirection: "row",
+    marginBottom: 30,
   },
   list: {
     width: "100%",
@@ -151,5 +109,28 @@ const styles = StyleSheet.create({
     padding: 5,
     flexDirection: "row",
     borderBottomWidth: 0.2,
+  },
+  heading: {
+    fontSize: 18,
+    fontWeight: "700",
+    color: "white",
+  },
+  subheading: {
+    fontSize: 15,
+    color: "white",
+  },
+  starticon: {
+    width: "10%",
+    justifyContent: "center",
+  },
+  midpart: {
+    width: "80%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  endicon: {
+    width: "10%",
+    justifyContent: "center",
+    alignItems: "flex-end",
   },
 });

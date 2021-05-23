@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity , Alert} from "react-native";
+import { View, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import {
   Avatar,
@@ -15,18 +15,18 @@ import {
   MaterialCommunityIcons,
   FontAwesome,
   Ionicons,
-  MaterialIcons
+  MaterialIcons,
 } from "react-native-vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import { ProgressBar, Colors  } from 'react-native-paper'
+import { ProgressBar, Colors } from "react-native-paper";
 
 export function DrawerContent(props) {
   return (
     <View style={{ flex: 1, backgroundColor: "black" }}>
       <DrawerContentScrollView {...props}>
-        {/* --------------Drawer content ----------------------- */}
+        {/* ---------------------------- Drawer content --------------------------------------- */}
         <View style={styles.drawerContent}>
-          {/* --------------User Info ----------------------------- */}
+          {/* ----------------------------- User Info ----------------------------------------- */}
           <View style={styles.userinfo}>
             <LinearGradient
               style={{ padding: 10, flex: 1 }}
@@ -53,9 +53,9 @@ export function DrawerContent(props) {
               </TouchableOpacity>
             </LinearGradient>
           </View>
-          {/* -------------------------Drawer Section ----------------------- */}
+          {/* -------------------------Drawer Section Starts----------------------- */}
           <Drawer.Section style={styles.section}>
-            {/* -------------------------Music ----------------------- */}
+            {/* -------------------------Music SECTION----------------------- */}
             <DrawerItem
               icon={({ color, size }) => (
                 <Ionicons name="musical-notes" color="#FF2871" size={size} />
@@ -70,7 +70,7 @@ export function DrawerContent(props) {
                 props.navigation.navigate("Home");
               }}
             />
-            {/* ------------------------- Settings ----------------------- */}
+            {/* ------------------------- Settings SETTINGS ----------------------- */}
             <DrawerItem
               icon={({ color, size }) => (
                 <Ionicons name="settings" color="#FF2871" size={25} />
@@ -84,7 +84,7 @@ export function DrawerContent(props) {
                 props.navigation.navigate("Setting");
               }}
             />
-            {/* ------------------------- Storage ----------------------- */}
+            {/* ------------------------- Storage SECTION----------------------- */}
             <DrawerItem
               icon={({ color, size }) => (
                 <MaterialIcons name="storage" color="#FF2871" size={25} />
@@ -109,18 +109,24 @@ export function DrawerContent(props) {
                 101.8 GB free
               </Text>
             </View>
-            {/* ------------------------- Clear Cache ----------------------- */}
+            {/* ------------------------- Clear Cache  SECTION ----------------------------- */}
             <DrawerItem
               icon={({ color, size }) => (
-                <MaterialCommunityIcons name="broom" color="#FF2871" size={25} />
+                <MaterialCommunityIcons
+                  name="broom"
+                  color="#FF2871"
+                  size={25}
+                />
               )}
               label={() => (
-                <Text style={{ color: "white", fontSize: 18 }}>Clear Cache</Text>
+                <Text style={{ color: "white", fontSize: 18 }}>
+                  Clear Cache
+                </Text>
               )}
               pressColor="pink"
               style={{}}
               onPress={() => {
-                Alert.alert('Cleared chache')
+                Alert.alert("Cleared chache");
               }}
             />
           </Drawer.Section>
@@ -142,13 +148,12 @@ const styles = StyleSheet.create({
   },
   clearcache: {
     backgroundColor: "#FF2871",
-    height:40,
-    width:150,
-    marginLeft:50,
+    height: 40,
+    width: 150,
+    marginLeft: 50,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius:10,
-    marginTop:30
-
+    borderRadius: 10,
+    marginTop: 30,
   },
 });

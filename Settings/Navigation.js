@@ -40,35 +40,43 @@ const Navigation = (props) => {
       </View>
       {/* ------------------------- Main Container -------------------------------------*/}
       {/* ------------------------- Navigation Information -------------------------------------*/}
-      <View style={{ width: "100%", alignItems: "center", marginTop: 20 }}>
+      <View
+        style={{
+          width: "100%",
+          alignItems: "center",
+          marginTop: 20,
+          marginBottom: 20,
+        }}
+      >
         <Text style={styles.heading}>Navigation</Text>
         <Text style={styles.caption}>
           BE SAFE. DO NOT TOGGLE WITH THE NAVIGATION APP PROPMTS BELOW WHILE
           DRIVING A MOTOR VEHICHLE
         </Text>
-        <View style={{ width: "100%", flexDirection: "row", marginTop: 20 }}>
-          <View style={{ width: "80%", paddingLeft: 10 }}>
-            <Text style={{ color: "white", fontSize: 16 }}>
-              Get a reminder to use navigation when you're in your car.
-            </Text>
-          </View>
-          <View
-            Style={{
-              width: "20%",
-              alignItems: "flex-end",
-              paddingRight: 10,
-            }}
-          >
-            <Switch
-              trackColor={{ false: "#767577", true: "pink" }}
-              thumbColor={isEnabled ? "#FF2871" : "#f4f3f4"}
-              ios_backgroundColor="#3e3e3e"
-              onValueChange={toggleSwitch}
-              value={isEnabled}
-            />
-          </View>
+      </View>
+      <View style={{ width: "100%", flexDirection: "row", marginTop: 20 }}>
+        <View style={{ width: "95%", paddingLeft: 10 }}>
+          <Text style={{ color: "white", fontSize: 16, padding: 10 }}>
+            Get a reminder to use navigation when you're in your car.
+          </Text>
+        </View>
+        <View
+          Style={{
+            width: "5%",
+            alignItems: "flex-end",
+            paddingRight: 10,
+          }}
+        >
+          <Switch
+            trackColor={{ false: "#767577", true: "pink" }}
+            thumbColor={isEnabled ? "#FF2871" : "#f4f3f4"}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={toggleSwitch}
+            value={isEnabled}
+          />
         </View>
       </View>
+
       {/* ------------------------- Google Maps -------------------------------------*/}
       <View style={styles.googlemap}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -93,12 +101,15 @@ const Navigation = (props) => {
         <View style={{ width: "100%", alignItems: "center" }}>
           <View style={styles.connect}>
             <TouchableOpacity>
-              <Text style={{ color: "white" }}> Connect</Text>
+              <Text style={{ color: "white", fontWeight: "600" }}>
+                {" "}
+                Connect
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
       </View>
-      {/* -------- Waze */}
+      {/* ------------------------------------ Waze ---------------------------------------------------*/}
       <View style={styles.googlemap}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Image

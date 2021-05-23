@@ -37,6 +37,8 @@ const Equalizer = (props) => {
         <View style={{ width: "10%" }}></View>
       </View>
       {/* ------------------------- Main Container -------------------------------------*/}
+      {/* --------------------------------- USE OF RADIO BUTTON ------------------------------------------- */}
+      {/* --------------------------------- NORMAL RADIO BUTTON ------------------------------------------- */}
       <View style={styles.option}>
         <RadioButton
           value="first"
@@ -47,6 +49,7 @@ const Equalizer = (props) => {
         />
         <Text style={styles.optionname}>Normal</Text>
       </View>
+      {/* --------------------------------- POP RADIO BUTTON ------------------------------------------- */}
       <View style={styles.option}>
         <RadioButton
           value="second"
@@ -57,6 +60,7 @@ const Equalizer = (props) => {
         />
         <Text style={styles.optionname}>Pop</Text>
       </View>
+      {/* --------------------------------- CLASSIC RADIO BUTTON ------------------------------------------- */}
       <View style={styles.option}>
         <RadioButton
           value="third"
@@ -67,6 +71,7 @@ const Equalizer = (props) => {
         />
         <Text style={styles.optionname}>Classic</Text>
       </View>
+      {/* --------------------------------- JAZZ RADIO BUTTON ------------------------------------------- */}
       <View style={styles.option}>
         <RadioButton
           value="fourth"
@@ -77,6 +82,7 @@ const Equalizer = (props) => {
         />
         <Text style={styles.optionname}>Jazz</Text>
       </View>
+      {/* --------------------------------- ROCK RADIO BUTTON ------------------------------------------- */}
       <View style={styles.option}>
         <RadioButton
           value="fifth"

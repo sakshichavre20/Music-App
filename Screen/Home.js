@@ -25,6 +25,7 @@ const Home = (props) => {
   return (
     <View style={styles.conatiner}>
       <StatusBar style="light" />
+      {/* --------------------------------- HEADER SECTION ------------------------------------------- */}
       <View style={styles.header}>
         <View style={{ width: "10%", paddingLeft: 5 }}>
           <TouchableOpacity onPress={() => props.navigation.openDrawer()}>
@@ -42,7 +43,7 @@ const Home = (props) => {
           }}
         ></View>
       </View>
-      {/*HEADER section ends*/}
+      {/* --------------------------------- SEARCHBAR SECTION ------------------------------------------- */}
       <View style={styles.search}>
         <View style={{ width: "90%", flexDirection: "row" }}>
           <FontAwesome name="search" size={24} color="#929695" />
@@ -53,7 +54,7 @@ const Home = (props) => {
         </View>
       </View>
 
-      {/*SEARCH section ends*/}
+      {/* --------------------------------- MAIN CONTAINER SECTION ------------------------------------------- */}
       <ScrollView style={{ flex: 1, width: "100%" }}>
         {/*1st Scroll List*/}
         {/*
@@ -106,9 +107,13 @@ const Home = (props) => {
             </ScrollView>
           </View>
           */}
+        {/* --------------------------------- MUSIC CATEGORY SECTION ------------------------------------------- */}
         <MusicCatog navigation={props.navigation} />
+        {/* --------------------------------- RECENTLY PLAYED SECTION ------------------------------------------- */}
         <RecentlyPlayed navigation={props.navigation} />
+        {/* --------------------------------- TODAYS PICK SECTION ------------------------------------------- */}
         <TodaysPick navigation={props.navigation} />
+        {/* --------------------------------- TRENDING SECTION ------------------------------------------- */}
         <Trending navigation={props.navigation} />
       </ScrollView>
     </View>
