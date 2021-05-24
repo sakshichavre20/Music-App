@@ -55,7 +55,7 @@ export function DrawerContent(props) {
           </View>
           {/* -------------------------Drawer Section Starts----------------------- */}
           <Drawer.Section style={styles.section}>
-            {/* -------------------------Music SECTION----------------------- */}
+            {/* ------------------------- Music SECTION ----------------------- */}
             <DrawerItem
               icon={({ color, size }) => (
                 <Ionicons name="musical-notes" color="#FF2871" size={size} />
@@ -70,7 +70,7 @@ export function DrawerContent(props) {
                 props.navigation.navigate("Home");
               }}
             />
-            {/* ------------------------- Settings SETTINGS ----------------------- */}
+            {/* ------------------------- Settings SEctions ----------------------- */}
             <DrawerItem
               icon={({ color, size }) => (
                 <Ionicons name="settings" color="#FF2871" size={25} />
@@ -96,6 +96,7 @@ export function DrawerContent(props) {
               style={{}}
               onPress={() => {}}
             />
+            {/*-------------------- use of progress bas ------------*/}
             <ProgressBar
               progress={0.2}
               color={"#FF2871"}

@@ -194,7 +194,7 @@ const Setting = (props) => {
 
         <View style={styles.list}>
           <View
-            style={{ width: "50%", justifyContent: "center", paddingTop: 5 }}
+            style={{ width: "80%", justifyContent: "center", paddingTop: 5 }}
           >
             <Text style={styles.subtitle}>Data Saver</Text>
             <Text style={{ color: "grey", fontSize: 13 }}>
@@ -204,7 +204,7 @@ const Setting = (props) => {
           <View
             style={{
               alignItems: "flex-end",
-              width: "50%",
+              width: "20%",
               justifyContent: "center",
             }}
           >
@@ -368,10 +368,12 @@ const styles = StyleSheet.create({
   },
   list: {
     width: "100%",
-    borderBottomWidth: 2,
     height: 50,
     padding: 10,
     flexDirection: "row",
+    backgroundColor: "#111111",
+    borderBottomWidth: 0.5,
+    borderBottomColor: "black",
   },
   headingText: {
     fontWeight: "600",
@@ -379,8 +381,8 @@ const styles = StyleSheet.create({
     color: "white",
     padding: 10,
     borderBottomColor: "#2d2d2d",
-    borderBottomWidth: 0.5,
-    borderTopWidth: 0.5,
+    borderBottomWidth: 0.7,
+    borderTopWidth: 0.7,
     borderTopColor: "#2d2d2d",
   },
   subtitle: {

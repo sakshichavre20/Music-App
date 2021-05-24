@@ -35,7 +35,7 @@ const Update = (props) => {
         <View style={{ width: "10%" }}></View>
       </View>
       {/* -------------------------  Section -------------------------------------*/}
-      <Text style={{ color: "white" }}>Update</Text>
+      <Text style={{ color: "white" }}></Text>
     </View>
   );
 };
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "black",
     alignItems: "center",
-    paddingTop: 30,
+    paddingTop: 40,
   },
   header: {
     backgroundColor: "#FF2871",

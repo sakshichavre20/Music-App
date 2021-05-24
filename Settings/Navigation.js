@@ -54,17 +54,24 @@ const Navigation = (props) => {
           DRIVING A MOTOR VEHICHLE
         </Text>
       </View>
-      <View style={{ width: "100%", flexDirection: "row", marginTop: 20 }}>
-        <View style={{ width: "95%", paddingLeft: 10 }}>
-          <Text style={{ color: "white", fontSize: 16, padding: 10 }}>
+      <View
+        style={{
+          width: "100%",
+          flexDirection: "row",
+          marginTop: 20,
+          alignItems: "center",
+        }}
+      >
+        <View style={{ width: "90%", paddingLeft: 5 }}>
+          <Text style={{ color: "white", fontSize: 15, padding: 10 }}>
             Get a reminder to use navigation when you're in your car.
           </Text>
         </View>
         <View
           Style={{
-            width: "5%",
+            width: "10%",
             alignItems: "flex-end",
-            paddingRight: 10,
+            paddingRight: 20,
           }}
         >
           <Switch
@@ -167,7 +174,7 @@ const styles = StyleSheet.create({
   },
   caption: {
     fontSize: 15,
-    color: "#FF2871",
+    color: "grey",
     textAlign: "center",
     marginTop: 20,
   },
