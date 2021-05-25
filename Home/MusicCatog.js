@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ImageBackground } from "react-native";
+import { ImageBackground, TouchableOpacity } from "react-native";
 import { Text, View, StyleSheet, FlatList } from "react-native";
 import { Image } from "react-native";
 import { Surface } from "react-native-paper";
@@ -65,17 +65,19 @@ export class MusicCatog extends Component {
           horizontal={true}
           renderItem={({ item, index }) => {
             return (
-              <Surface style={styles.surface}>
-                <Image
-                  style={{ width: 105, height: 105, borderRadius: 10 }}
-                  source={item.img}
-                />
-                <Text
-                  style={{ color: "white", fontSize: 18, fontWeight: "700" }}
-                >
-                  {item.name}
-                </Text>
-              </Surface>
+              <TouchableOpacity>
+                <Surface style={styles.surface}>
+                  <Image
+                    style={{ width: 105, height: 105, borderRadius: 10 }}
+                    source={item.img}
+                  />
+                  <Text
+                    style={{ color: "white", fontSize: 18, fontWeight: "700" }}
+                  >
+                    {item.name}
+                  </Text>
+                </Surface>
+              </TouchableOpacity>
             );
           }}
         />
@@ -88,8 +90,8 @@ const styles = StyleSheet.create({
   container: {
     height: 175,
     width: "100%",
-    marginBottom:50,
-    paddingHorizontal:5
+    marginBottom: 50,
+    paddingHorizontal: 5,
   },
   surface: {
     width: 130,
@@ -99,7 +101,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
-
   },
 });
 

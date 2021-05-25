@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ImageBackground } from "react-native";
+import { ImageBackground, TouchableOpacity } from "react-native";
 import { Text, View, StyleSheet, FlatList } from "react-native";
 import { Image } from "react-native";
 import { Surface } from "react-native-paper";
@@ -80,26 +80,28 @@ export class TodaysPick extends Component {
           horizontal={true}
           renderItem={({ item, index }) => {
             return (
-              <Surface style={styles.surface}>
-                <ImageBackground
-                  imageStyle={{ borderRadius: 10 }}
-                  style={{
-                    width: 120,
-                    height: 120,
-                    borderRadius: 10,
-                    justifyContent: "flex-end",
-                    padding: 7,
-                  }}
-                  source={item.img}
-                >
-                  <AntDesign name="play" color="white" size={24} />
-                </ImageBackground>
-                <Text
-                  style={{ color: "white", fontSize: 15, fontWeight: "300" }}
-                >
-                  {item.name}
-                </Text>
-              </Surface>
+              <TouchableOpacity>
+                <Surface style={styles.surface}>
+                  <ImageBackground
+                    imageStyle={{ borderRadius: 10 }}
+                    style={{
+                      width: 120,
+                      height: 120,
+                      borderRadius: 10,
+                      justifyContent: "flex-end",
+                      padding: 7,
+                    }}
+                    source={item.img}
+                  >
+                    <AntDesign name="play" color="white" size={24} />
+                  </ImageBackground>
+                  <Text
+                    style={{ color: "white", fontSize: 15, fontWeight: "300" }}
+                  >
+                    {item.name}
+                  </Text>
+                </Surface>
+              </TouchableOpacity>
             );
           }}
         />

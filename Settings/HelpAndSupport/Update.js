@@ -5,9 +5,10 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
+  Image,
 } from "react-native";
 
-import { Ionicons } from "react-native-vector-icons";
+import { Ionicons, MaterialIcons } from "react-native-vector-icons";
 
 const Update = (props) => {
   return (
@@ -34,8 +35,51 @@ const Update = (props) => {
         </View>
         <View style={{ width: "10%" }}></View>
       </View>
-      {/* -------------------------  Section -------------------------------------*/}
-      <Text style={{ color: "white" }}></Text>
+      {/* ------------------------- Bell Section -------------------------------------*/}
+
+      <Image source={require("../../assets/Bell.jpeg")} style={styles.bell} />
+      {/* ------------------------- update Section -------------------------------------*/}
+      <View style={{ width: "100%", padding: 10 }}>
+        <Text style={{ fontWeight: "600", color: "white", fontSize: 17 }}>
+          Software Update Information
+        </Text>
+        <Text style={styles.update_info}>. Version:A12345ASDF67890</Text>
+        <Text style={styles.update_info}>. Size : 20.21MB</Text>
+        <Text style={styles.update_info}>
+          . Security Patch Level 1st May 2021
+        </Text>
+      </View>
+      {/* ------------------------- Whats new Section -------------------------------------*/}
+      <View style={{ width: "100%", padding: 10 }}>
+        <View style={{ flexDirection: "row", width: "100%" }}>
+          <Text
+            style={{
+              fontWeight: "600",
+              color: "white",
+              fontSize: 17,
+              paddingRight: 5,
+              alignItems: "center",
+            }}
+          >
+            What's New
+          </Text>
+          <MaterialIcons name="celebration" size={22} color="white" />
+        </View>
+
+        <Text style={styles.update_info}>. Updated Podcast</Text>
+        <Text style={styles.update_info}>. New navigation features</Text>
+        <Text style={styles.update_info}>. Improved Streaming Quality</Text>
+      </View>
+      {/* ------------------------- Learn more Section -------------------------------------*/}
+      <View style={{ width: "100%", padding: 10 }}>
+        <Text style={{ fontWeight: "600", color: "white", fontSize: 17 }}>
+          Learn More At
+        </Text>
+        <TouchableOpacity onPress={() => {}}>
+          <Text style={styles.update_info}> https://horemmuisck.com</Text>
+        </TouchableOpacity>
+      </View>
+      {/* ------------------------- Section -------------------------------------*/}
     </View>
   );
 };
@@ -58,5 +102,17 @@ const styles = StyleSheet.create({
     height: 50,
     width: "100%",
     marginBottom: 10,
+  },
+  bell: {
+    height: 200,
+    width: 200,
+    marginTop: 30,
+    marginBottom: 20,
+  },
+  update_info: {
+    fontWeight: "400",
+    color: "grey",
+    fontSize: 15,
+    marginLeft: 10,
   },
 });

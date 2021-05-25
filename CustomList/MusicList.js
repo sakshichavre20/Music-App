@@ -1,14 +1,27 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import { Ionicons, MaterialIcons } from "react-native-vector-icons";
+import {
+  FontAwesome,
+  MaterialIcons,
+  AntDesign,
+  Ionicons,
+} from "react-native-vector-icons";
 
 const MusicList = ({ name, details }) => {
   return (
     <View style={styles.container}>
-      <Image style={{}} />
-      <View style={{ width: "100%", padding: 10 }}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.details}>{details}</Text>
+      <View
+        style={{ width: "90%", flexDirection: "row", alignItems: "center" }}
+      >
+        <Ionicons name="musical-notes" size={24} color="white" />
+        <View style={{ paddingLeft: 20 }}>
+          <Text style={styles.name}>{name}</Text>
+          <Text style={styles.details}>{details}</Text>
+        </View>
+      </View>
+
+      <View style={{ width: "10%", alignItems: "flex-end" }}>
+        <AntDesign name="heart" size={24} color="white" />
       </View>
     </View>
   );
@@ -18,22 +31,21 @@ export default MusicList;
 
 const styles = StyleSheet.create({
   container: {
-    height: 150,
-    width: 150,
+    height: 50,
+    width: "100%",
     backgroundColor: "#2D2D2D",
-    borderBottomWidth: 0.3,
+    borderBottomWidth: 0.5,
     paddingHorizontal: 20,
     flexDirection: "row",
     alignItems: "center",
-    margin: 3,
   },
   name: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "bold",
-    color: "#929695",
+    color: "#FF2871",
   },
   details: {
-    fontSize: 20,
+    fontSize: 15,
     color: "#929695",
   },
 });

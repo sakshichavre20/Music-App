@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "black",
-    paddingTop: 30,
+    paddingTop: 40,
   },
   header: {
     height: 50,
@@ -100,7 +100,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#FF2871",
     alignItems: "center",
     flexDirection: "row",
-    marginBottom: 30,
   },
   list: {
     width: "100%",

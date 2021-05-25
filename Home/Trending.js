@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { ImageBackground } from "react-native";
-import { Text, View, StyleSheet, FlatList } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import { Image } from "react-native";
 import { Surface } from "react-native-paper";
 import { AntDesign } from "react-native-vector-icons";
-
 
 export class Trending extends Component {
   constructor(props) {
@@ -81,26 +86,28 @@ export class Trending extends Component {
           horizontal={true}
           renderItem={({ item, index }) => {
             return (
-              <Surface style={styles.surface}>
-                <ImageBackground
-                  imageStyle={{ borderRadius: 10 }}
-                  style={{
-                    width: 120,
-                    height: 120,
-                    borderRadius: 10,
-                    justifyContent: "flex-end",
-                    padding: 7,
-                  }}
-                  source={item.img}
-                >
-                  <AntDesign name="play" color="white" size={24} />
-                </ImageBackground>
-                <Text
-                  style={{ color: "white", fontSize: 15, fontWeight: "300" }}
-                >
-                  {item.name}
-                </Text>
-              </Surface>
+              <TouchableOpacity>
+                <Surface style={styles.surface}>
+                  <ImageBackground
+                    imageStyle={{ borderRadius: 10 }}
+                    style={{
+                      width: 120,
+                      height: 120,
+                      borderRadius: 10,
+                      justifyContent: "flex-end",
+                      padding: 7,
+                    }}
+                    source={item.img}
+                  >
+                    <AntDesign name="play" color="white" size={24} />
+                  </ImageBackground>
+                  <Text
+                    style={{ color: "white", fontSize: 15, fontWeight: "300" }}
+                  >
+                    {item.name}
+                  </Text>
+                </Surface>
+              </TouchableOpacity>
             );
           }}
         />

@@ -55,6 +55,9 @@ const Setting = (props) => {
           <View style={styles.list}>
             <View style={{ width: "50%", justifyContent: "center" }}>
               <Text style={styles.subtitle}>Language Preference</Text>
+              <Text style={{ color: "grey", fontSize: 13 }}>
+                Set Your Language
+              </Text>
             </View>
             <View style={styles.endicon}>
               <FontAwesome5 name="language" size={24} color="white" />
@@ -70,6 +73,9 @@ const Setting = (props) => {
           <View style={styles.list}>
             <View style={{ width: "50%", justifyContent: "center" }}>
               <Text style={styles.subtitle}>Equalizer</Text>
+              <Text style={{ color: "grey", fontSize: 13 }}>
+                Manipulate Frequiencies
+              </Text>
             </View>
             <View style={styles.endicon}>
               <MaterialIcons name="equalizer" size={24} color="white" />
@@ -83,11 +89,13 @@ const Setting = (props) => {
           <View
             style={{
               width: "50%",
-
               justifyContent: "center",
             }}
           >
             <Text style={styles.subtitle}>StreamingQuality</Text>
+            <Text style={{ color: "grey", fontSize: 13 }}>
+              Set Your Streaming Qulaity
+            </Text>
           </View>
           <View
             style={{
@@ -126,11 +134,13 @@ const Setting = (props) => {
           <View
             style={{
               width: "50%",
-
               justifyContent: "center",
             }}
           >
             <Text style={styles.subtitle}>DownloadQuality</Text>
+            <Text style={{ color: "grey", fontSize: 13 }}>
+              Set Your Download Quality
+            </Text>
           </View>
           <View
             style={{
@@ -163,7 +173,7 @@ const Setting = (props) => {
           </View>
         </View>
 
-        {/* ------------------------DATA USAGE SECTION STARTS ------------------------------*/}
+        {/* ------------------------ DATA USAGE SECTION STARTS ------------------------------*/}
         <View
           style={{
             flexDirection: "row",
@@ -223,6 +233,9 @@ const Setting = (props) => {
         <View style={styles.list}>
           <View style={{ width: "50%", justifyContent: "center" }}>
             <Text style={styles.subtitle}>Data Usage Warning</Text>
+            <Text style={{ color: "grey", fontSize: 13 }}>
+              Warns about excess data usage
+            </Text>
           </View>
           <View
             style={{
@@ -327,6 +340,7 @@ const Setting = (props) => {
           <View style={styles.list}>
             <View style={{ width: "50%", justifyContent: "center" }}>
               <Text style={styles.subtitle}>Customer Support</Text>
+              <Text style={{ color: "grey", fontSize: 13 }}>Contact Us</Text>
             </View>
             <View style={styles.endicon}>
               <AntDesign name="customerservice" size={28} color="white" />
@@ -338,6 +352,7 @@ const Setting = (props) => {
           <View style={styles.list}>
             <View style={{ width: "50%", justifyContent: "center" }}>
               <Text style={styles.subtitle}>Updates</Text>
+              <Text style={{ color: "grey", fontSize: 13 }}>Check Updates</Text>
             </View>
             <View style={styles.endicon}>
               <MaterialIcons name="update" size={28} color="white" />
@@ -368,7 +383,7 @@ const styles = StyleSheet.create({
   },
   list: {
     width: "100%",
-    height: 50,
+    height: 60,
     padding: 10,
     flexDirection: "row",
     backgroundColor: "#111111",

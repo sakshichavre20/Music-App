@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import { Ionicons } from "react-native-vector-icons";
+import MusicList from "../CustomList/MusicList";
 
 const MyFav = (props) => {
   return (
@@ -32,9 +33,39 @@ const MyFav = (props) => {
             Favourite
           </Text>
         </View>
-        <View style={{ width: "10%" }}></View>
+        <View style={{ width: "10%" }}>
+          <TouchableOpacity onPress={() => {}}>
+            <Ionicons name="search-sharp" size={28} color="white" />
+          </TouchableOpacity>
+        </View>
       </View>
       {/* -------------------------  Section -------------------------------------*/}
+      <ScrollView style={{ width: "100%" }}>
+        <TouchableOpacity onPress={() => {}}>
+          <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <MusicList name="Woh Lamhe" details="Atif Aslam" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <MusicList name="Tere Bin" details="Atif Aslam" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <MusicList name="Pehli Dafa" details="Atif Aslam" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <MusicList name="Woh Lamhe" details="Atif Aslam" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <MusicList name="Tere Bin" details="Atif Aslam" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <MusicList name="Pehli Dafa" details="Atif Aslam" />
+        </TouchableOpacity>
+      </ScrollView>
     </View>
   );
 };
@@ -55,6 +86,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: 50,
     width: "100%",
-    marginBottom: 10,
   },
 });

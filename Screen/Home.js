@@ -15,7 +15,6 @@ import {
   Entypo,
 } from "react-native-vector-icons";
 
-import MusicList from "../CustomList/MusicList";
 import MusicCatog from "../Home/MusicCatog";
 import RecentlyPlayed from "../Home/RecentlyPlayed";
 import TodaysPick from "../Home/TodaysPick";
