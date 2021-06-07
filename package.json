@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-community/slider": "^3.0.3",
     "@react-navigation/bottom-tabs": "^5.11.9",
     "@react-navigation/drawer": "^5.12.5",
     "@react-navigation/material-bottom-tabs": "^5.3.15",

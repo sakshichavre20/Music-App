@@ -27,6 +27,7 @@ import MyLibraray from "./MyMusic/MyLibraray";
 import Navigation from "./Settings/Navigation";
 import CustomerSupport from "./Settings/HelpAndSupport/CustomerSupport";
 import Update from "./Settings/HelpAndSupport/Update";
+import MusicPlayer from "./Screen/MusicPlayer";
 
 {
   /* ---------------------------Screen Stack ------------------------------------------- */
@@ -124,6 +125,13 @@ export default function App() {
         <Stack.Screen
           name="Update"
           component={Update}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="MusicPlayer"
+          component={MusicPlayer}
           options={{
             headerShown: false,
           }}

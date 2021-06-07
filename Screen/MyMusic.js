@@ -39,7 +39,7 @@ const MyMusic = (props) => {
             <Text style={styles.subheading}>6 songs</Text>
           </View>
           <View style={styles.endicon}>
-            <AntDesign name="right" size={30} color="white" />
+            <AntDesign name="right" size={24} color="white" />
           </View>
         </View>
       </TouchableOpacity>
@@ -58,7 +58,7 @@ const MyMusic = (props) => {
             <Text style={styles.subheading}>8 songs</Text>
           </View>
           <View style={styles.endicon}>
-            <AntDesign name="right" size={30} color="white" />
+            <AntDesign name="right" size={24} color="white" />
           </View>
         </View>
       </TouchableOpacity>
@@ -77,7 +77,7 @@ const MyMusic = (props) => {
             <Text style={styles.subheading}>15 songs</Text>
           </View>
           <View style={styles.endicon}>
-            <AntDesign name="right" size={30} color="white" />
+            <AntDesign name="right" size={24} color="white" />
           </View>
         </View>
       </TouchableOpacity>
@@ -104,10 +104,11 @@ const styles = StyleSheet.create({
   list: {
     width: "100%",
     height: 50,
-    backgroundColor: "#2d2d2d",
+
     padding: 5,
     flexDirection: "row",
-    borderBottomWidth: 0.2,
+    borderBottomWidth: 0.3,
+    borderBottomColor: "#2d2d2d",
   },
   heading: {
     fontSize: 18,

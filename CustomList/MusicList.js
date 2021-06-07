@@ -21,7 +21,7 @@ const MusicList = ({ name, details }) => {
       </View>
 
       <View style={{ width: "10%", alignItems: "flex-end" }}>
-        <AntDesign name="heart" size={24} color="white" />
+        <AntDesign name="heart" size={20} color="white" />
       </View>
     </View>
   );
@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
   container: {
     height: 50,
     width: "100%",
-    backgroundColor: "#2D2D2D",
-    borderBottomWidth: 0.5,
+    borderBottomColor: "#2D2D2D",
+    borderBottomWidth: 0.3,
     paddingHorizontal: 20,
     flexDirection: "row",
     alignItems: "center",

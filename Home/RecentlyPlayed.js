@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { ImageBackground } from "react-native";
 import {
   Text,
@@ -11,109 +11,113 @@ import { Image } from "react-native";
 import { Surface } from "react-native-paper";
 import { AntDesign } from "react-native-vector-icons";
 
-export class RecentlyPlayed extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    let categories = [
-      {
-        name: "Woh Lamhe",
-        img: {
-          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRosn277vkOVo-PiJyguD3vuHCWYBU3aUqXmg&usqp=CAU",
-        },
-        id: "1",
+export default function RecentlyPlayed(props) {
+  const [songname, setSongname] = useState([
+    {
+      name: "Woh Lamhe",
+      img: {
+        uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRosn277vkOVo-PiJyguD3vuHCWYBU3aUqXmg&usqp=CAU",
       },
-      {
-        name: "Tere Bin",
-        img: {
-          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8okjJ4RFxdfjYRsgpj2wbYq6LPxtH-GlVsw&usqp=CAU",
-        },
-        id: "2",
+      id: "1",
+      artist: "Atif Aslam",
+    },
+    {
+      name: "Tere Bin",
+      img: {
+        uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8okjJ4RFxdfjYRsgpj2wbYq6LPxtH-GlVsw&usqp=CAU",
       },
-      {
-        name: "Pehli Dafa",
-        img: {
-          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDziV9H4YkT_E6yJZEKHr3H5DDaGbsFeZJSg&usqp=CAU",
-        },
-        id: "3",
+      id: "2",
+      artist: "Atif Aslam",
+    },
+    {
+      name: "Pehli Dafa",
+      img: {
+        uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDziV9H4YkT_E6yJZEKHr3H5DDaGbsFeZJSg&usqp=CAU",
       },
-      {
-        name: "Lut Gaye",
-        img: {
-          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPVPN0AGrSPQbkd0xWBAYxkO00UDI1vEkCOA&usqp=CAU",
-        },
-        id: "4",
+      id: "3",
+      artist: "Atif Aslam",
+    },
+    {
+      name: "Lut Gaye",
+      img: {
+        uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPVPN0AGrSPQbkd0xWBAYxkO00UDI1vEkCOA&usqp=CAU",
       },
-      {
-        name: "Girls Like You",
-        img: {
-          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJL-CAiYv-LwTDiqAEBFlsah9hKrdPKurqtQ&usqp=CAU",
-        },
-        id: "5",
+      id: "4",
+      artist: "Jubin Nautiyal",
+    },
+    {
+      name: "Girls Like You",
+      img: {
+        uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJL-CAiYv-LwTDiqAEBFlsah9hKrdPKurqtQ&usqp=CAU",
       },
-      {
-        name: "Tere Liye",
-        img: {
-          uri: "https://flipskyey206.weebly.com/uploads/1/2/4/0/124007623/493284827.jpg",
-        },
-        id: "6",
+      id: "5",
+      artist: "Maroon 5",
+    },
+    {
+      name: "Tere Liye",
+      img: {
+        uri: "https://flipskyey206.weebly.com/uploads/1/2/4/0/124007623/493284827.jpg",
       },
-      {
-        name: "Thalaivi",
-        img: {
-          uri: "https://songs5.vlcmusic.com/tiny_image/timthumb.php?q=100&w=250&src=images/27276.png",
-        },
-        id: "7",
+      id: "6",
+      artist: "Madan Mohan",
+    },
+    {
+      name: "Thalaivi",
+      img: {
+        uri: "https://songs5.vlcmusic.com/tiny_image/timthumb.php?q=100&w=250&src=images/27276.png",
       },
-    ];
-    return (
-      <View style={styles.container}>
-        <Text
-          style={{
-            fontSize: 20,
-            fontWeight: "bold",
-            color: "white",
-            paddingLeft: 5,
-          }}
-        >
-          Recently Played
-        </Text>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          keyExtractor={(item) => item.id}
-          data={categories}
-          horizontal={true}
-          renderItem={({ item, index }) => {
-            return (
-              <TouchableOpacity>
-                <Surface style={styles.surface}>
-                  <ImageBackground
-                    imageStyle={{ borderRadius: 10 }}
-                    style={{
-                      width: 120,
-                      height: 120,
-                      borderRadius: 10,
-                      justifyContent: "flex-end",
-                      padding: 7,
-                    }}
-                    source={item.img}
-                  >
-                    <AntDesign name="play" color="white" size={24} />
-                  </ImageBackground>
-                  <Text
-                    style={{ color: "white", fontSize: 15, fontWeight: "300" }}
-                  >
-                    {item.name}
-                  </Text>
-                </Surface>
-              </TouchableOpacity>
-            );
-          }}
-        />
-      </View>
-    );
-  }
+      id: "7",
+      artist: "Vidya Vox",
+    },
+  ]);
+  return (
+    <View style={styles.container}>
+      <Text
+        style={{
+          fontSize: 20,
+          fontWeight: "bold",
+          color: "white",
+          paddingLeft: 5,
+        }}
+      >
+        Recently Played
+      </Text>
+      <FlatList
+        showsHorizontalScrollIndicator={false}
+        keyExtractor={(item) => item.id}
+        data={songname}
+        horizontal={true}
+        renderItem={({ item, index }) => {
+          return (
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate("MusicPlayer", { item })}
+            >
+              <Surface style={styles.surface}>
+                <ImageBackground
+                  imageStyle={{ borderRadius: 10 }}
+                  style={{
+                    width: 120,
+                    height: 120,
+                    borderRadius: 10,
+                    justifyContent: "flex-end",
+                    padding: 7,
+                  }}
+                  source={item.img}
+                >
+                  <AntDesign name="play" color="white" size={24} />
+                </ImageBackground>
+                <Text
+                  style={{ color: "white", fontSize: 15, fontWeight: "300" }}
+                >
+                  {item.name}
+                </Text>
+              </Surface>
+            </TouchableOpacity>
+          );
+        }}
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -126,12 +130,11 @@ const styles = StyleSheet.create({
   surface: {
     width: 130,
     padding: 5,
-    backgroundColor: "#2d2d2d",
+    backgroundColor: "transparent",
     margin: 3,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
+    elevation: 50,
   },
 });
-
-export default RecentlyPlayed;

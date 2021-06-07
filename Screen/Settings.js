@@ -22,6 +22,14 @@ const Setting = (props) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
+  const [isEnabled1, setIsEnabled1] = useState(false);
+  const toggleSwitch1 = () => setIsEnabled1((previousState) => !previousState);
+
+  const [isEnabled2, setIsEnabled2] = useState(false);
+  const toggleSwitch2 = () => setIsEnabled2((previousState) => !previousState);
+
+  const [isEnabled3, setIsEnabled3] = useState(false);
+  const toggleSwitch3 = () => setIsEnabled3((previousState) => !previousState);
   return (
     <View style={styles.container}>
       {/* ------------------------- header section starts --------------------------------*/}
@@ -246,10 +254,10 @@ const Setting = (props) => {
           >
             <Switch
               trackColor={{ false: "#767577", true: "pink" }}
-              thumbColor={isEnabled ? "#FF2871" : "#f4f3f4"}
+              thumbColor={isEnabled1 ? "#FF2871" : "#f4f3f4"}
               ios_backgroundColor="#3e3e3e"
-              onValueChange={toggleSwitch}
-              value={isEnabled}
+              onValueChange={toggleSwitch1}
+              value={isEnabled1}
             />
           </View>
         </View>
@@ -294,43 +302,43 @@ const Setting = (props) => {
           >
             <Switch
               trackColor={{ false: "#767577", true: "pink" }}
-              thumbColor={isEnabled ? "#FF2871" : "#f4f3f4"}
+              thumbColor={isEnabled2 ? "#FF2871" : "#f4f3f4"}
               ios_backgroundColor="#3e3e3e"
-              onValueChange={toggleSwitch}
-              value={isEnabled}
+              onValueChange={toggleSwitch2}
+              value={isEnabled2}
             />
           </View>
         </View>
 
         {/* ----------------------------Sleep Mode section starts --------------------------*/}
-        <TouchableOpacity onPress={() => {}}>
-          <View style={styles.list}>
-            <View style={{ width: "80%", justifyContent: "center" }}>
-              <Text style={styles.subtitle}>Sleep Mode</Text>
-              <Text style={{ color: "grey", fontSize: 13 }}>
-                Set Timer for your music.
-              </Text>
-            </View>
-            <View
-              style={{
-                alignItems: "flex-end",
-                width: "20%",
-                justifyContent: "center",
 
-                flexDirection: "column",
-              }}
-            >
-              <Switch
-                trackColor={{ false: "#767577", true: "pink" }}
-                thumbColor={isEnabled ? "#FF2871" : "#f4f3f4"}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={toggleSwitch}
-                value={isEnabled}
-              />
-              <Text style={{ color: "grey", paddingRight: 7 }}>10 min</Text>
-            </View>
+        <View style={styles.list}>
+          <View style={{ width: "80%", justifyContent: "center" }}>
+            <Text style={styles.subtitle}>Sleep Mode</Text>
+            <Text style={{ color: "grey", fontSize: 13 }}>
+              Set Timer for your music.
+            </Text>
           </View>
-        </TouchableOpacity>
+          <View
+            style={{
+              alignItems: "flex-end",
+              width: "20%",
+              justifyContent: "center",
+
+              flexDirection: "column",
+            }}
+          >
+            <Switch
+              trackColor={{ false: "#767577", true: "pink" }}
+              thumbColor={isEnabled3 ? "#FF2871" : "#f4f3f4"}
+              ios_backgroundColor="#3e3e3e"
+              onValueChange={toggleSwitch3}
+              value={isEnabled3}
+            />
+            <Text style={{ color: "grey", paddingRight: 7 }}>10 min</Text>
+          </View>
+        </View>
+
         {/* ------------------------- Help and support -------------------------------------*/}
         <Text style={styles.headingText}>Help And Support</Text>
         {/* ------------------------- Customer Support -------------------------------------*/}
