@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import CarouselPodcast from "./../CustomList/CarouselPodcast";
 
 const PodCast = ({ navigation }) => {
   return (
@@ -12,6 +13,7 @@ const PodCast = ({ navigation }) => {
           </Text>
         </View>
       </View>
+      <CarouselPodcast />
     </View>
   );
 };
@@ -22,9 +24,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "black",
-
     alignItems: "center",
-    paddingTop: 30,
   },
   header: {
     height: 50,

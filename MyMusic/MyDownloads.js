@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import { Ionicons } from "react-native-vector-icons";
+import DownloadList from "../CustomList/DownloadList";
 import MusicList from "../CustomList/MusicList";
 
 const MyDownloads = (props) => {
@@ -41,32 +42,7 @@ const MyDownloads = (props) => {
       </View>
 
       {/* -------------------------  Section -------------------------------------*/}
-      <ScrollView style={{ width: "100%" }}>
-        <TouchableOpacity onPress={() => {}}>
-          <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
-          <MusicList name="Woh Lamhe" details="Atif Aslam" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
-          <MusicList name="Tere Bin" details="Atif Aslam" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
-          <MusicList name="Pehli Dafa" details="Atif Aslam" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
-          <MusicList name="Lut Gaye" details="Jubin Nautiyal" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
-          <MusicList name="Woh Lamhe" details="Atif Aslam" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
-          <MusicList name="Tere Bin" details="Atif Aslam" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
-          <MusicList name="Pehli Dafa" details="Atif Aslam" />
-        </TouchableOpacity>
-      </ScrollView>
+      <DownloadList navigation={props.navigation} />
     </View>
   );
 };

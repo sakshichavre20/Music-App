@@ -30,7 +30,7 @@ const MyMusic = (props) => {
           <View style={styles.starticon}>
             <MaterialCommunityIcons
               name="download-box"
-              size={37}
+              size={30}
               color="white"
             />
           </View>
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     padding: 5,
     flexDirection: "row",
     borderBottomWidth: 0.3,
-    borderBottomColor: "#2d2d2d",
+    borderBottomColor: "darkgrey",
   },
   heading: {
     fontSize: 18,

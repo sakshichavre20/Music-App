@@ -117,6 +117,7 @@ const MusicPlayer = ({ navigation, route }) => {
             borderTopStartRadius: 40,
             borderTopEndRadius: 40,
             backgroundColor: "black",
+            opacity: 0.8,
           }}
         >
           <View style={styles.icon}>
@@ -193,7 +194,7 @@ const styles = StyleSheet.create({
     height: 305,
     width: 305,
     borderRadius: 20,
-    elevation: 20,
+    elevation: 50,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
