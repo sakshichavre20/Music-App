@@ -1,17 +1,11 @@
 import React, { useState } from "react";
-import { ImageBackground } from "react-native";
-import {
-  Text,
-  View,
-  StyleSheet,
-  FlatList,
-  TouchableOpacity,
-} from "react-native";
+import { ImageBackground, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, FlatList } from "react-native";
 import { Image } from "react-native";
 import { Surface } from "react-native-paper";
 import { AntDesign } from "react-native-vector-icons";
 
-export default function RecentlyPlayed(props) {
+export default function PopularRadioList(props) {
   const [songname, setSongname] = useState([
     {
       name: "Woh Lamhe",
@@ -77,13 +71,13 @@ export default function RecentlyPlayed(props) {
           fontSize: 20,
           fontWeight: "bold",
           color: "white",
-          paddingLeft: 5,
+          paddingLeft: 15,
         }}
       >
-        Recently Played
+        Popular Radio
       </Text>
       <FlatList
-        showsHorizontalScrollIndicator={false}
+        showsHorizontalScrollIndicator={true}
         keyExtractor={(item) => item.id}
         data={songname}
         horizontal={true}
@@ -93,19 +87,29 @@ export default function RecentlyPlayed(props) {
               onPress={() => props.navigation.navigate("MusicPlayer", { item })}
             >
               <Surface style={styles.surface}>
-                <ImageBackground
-                  imageStyle={{ borderRadius: 10 }}
+                <View
                   style={{
-                    width: 120,
-                    height: 120,
-                    borderRadius: 10,
-                    justifyContent: "flex-end",
-                    padding: 7,
+                    width: 125,
+                    height: 125,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    backgroundColor: "white",
+                    elevation: 50,
+                    borderRadius: 130,
                   }}
-                  source={item.img}
                 >
-                  <AntDesign name="play" color="white" size={24} />
-                </ImageBackground>
+                  <ImageBackground
+                    imageStyle={{ borderRadius: 200 }}
+                    style={{
+                      width: 120,
+                      height: 120,
+                      borderRadius: 10,
+                      justifyContent: "flex-end",
+                      padding: 7,
+                    }}
+                    source={item.img}
+                  ></ImageBackground>
+                </View>
                 <Text
                   style={{ color: "white", fontSize: 15, fontWeight: "300" }}
                 >
@@ -135,6 +139,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
-    elevation: 50,
   },
 });

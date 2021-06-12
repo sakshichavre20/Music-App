@@ -19,7 +19,7 @@ import MusicCatog from "../Home/MusicCatog";
 import RecentlyPlayed from "../Home/RecentlyPlayed";
 import TodaysPick from "../Home/TodaysPick";
 import Trending from "../Home/Trending";
-
+import CategoryCarousel from "../CustomList/CategoryCarousel";
 const Home = (props) => {
   return (
     <View style={styles.conatiner}>
@@ -107,7 +107,7 @@ const Home = (props) => {
           </View>
           */}
         {/* --------------------------------- MUSIC CATEGORY SECTION ------------------------------------------- */}
-        <MusicCatog navigation={props.navigation} />
+        <CategoryCarousel navigation={props.navigation} />
         {/* --------------------------------- RECENTLY PLAYED SECTION ------------------------------------------- */}
         <RecentlyPlayed navigation={props.navigation} />
         {/* --------------------------------- TODAYS PICK SECTION ------------------------------------------- */}

@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     height: 190,
     width: "100%",
     paddingHorizontal: 5,
-    marginBottom: 50,
+    marginBottom: 10,
   },
   surface: {
     width: 130,

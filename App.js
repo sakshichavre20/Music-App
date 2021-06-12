@@ -28,6 +28,7 @@ import Navigation from "./Settings/Navigation";
 import CustomerSupport from "./Settings/HelpAndSupport/CustomerSupport";
 import Update from "./Settings/HelpAndSupport/Update";
 import MusicPlayer from "./Screen/MusicPlayer";
+import MusicCatogList from "./Screen/MusicCatogList";
 
 {
   /* ---------------------------Screen Stack ------------------------------------------- */
@@ -132,6 +133,13 @@ export default function App() {
         <Stack.Screen
           name="MusicPlayer"
           component={MusicPlayer}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="MusicCatogList"
+          component={MusicCatogList}
           options={{
             headerShown: false,
           }}

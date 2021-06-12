@@ -1,20 +1,29 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import CarouselPodcast from "./../CustomList/CarouselPodcast";
-
-const PodCast = ({ navigation }) => {
+import PodCastCarousel from "./../CustomList/PodCastCarousel";
+import { LinearGradient } from "expo-linear-gradient";
+import PopularRadioList from "./../CustomList/PopularRadioList";
+const PodCast = (props) => {
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      style={styles.login}
+      colors={["#FF3C7E", "#FF3C7E", "#FC2C72", "black", "black"]}
+      style={styles.container}
+    >
       {/* ----------------------------------------HEADER SECTION--------------------------------------- */}
-      <View style={styles.header}>
-        <View style={{ alignItems: "center", width: "100%" }}>
-          <Text style={{ fontWeight: "bold", fontSize: 22, color: "white" }}>
-            My Music
-          </Text>
-        </View>
-      </View>
-      <CarouselPodcast />
-    </View>
+      <Text
+        style={{
+          fontSize: 30,
+          fontWeight: "bold",
+          color: "white",
+          marginTop: 40,
+        }}
+      >
+        Podcasts
+      </Text>
+      <PodCastCarousel />
+      <PopularRadioList navigation={props.navigation} />
+    </LinearGradient>
   );
 };
 
