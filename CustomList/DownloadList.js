@@ -19,6 +19,17 @@ import {
 } from "react-native-vector-icons";
 
 export default function DownloadList(props) {
+  const [color, setColor] = useState(false);
+
+  {
+    /* const like = () => {
+    if (liked) {
+      setColor("red");
+    } else {
+      setColor("se");
+    }
+  };*/
+  }
   const [songname, setSongname] = useState([
     {
       name: "Woh Lamhe",
@@ -27,6 +38,7 @@ export default function DownloadList(props) {
       },
       id: "1",
       artist: "Atif Aslam",
+      liked: true,
     },
     {
       name: "Tere Bin",
@@ -35,6 +47,7 @@ export default function DownloadList(props) {
       },
       id: "2",
       artist: "Atif Aslam",
+      liked: false,
     },
     {
       name: "Pehli Dafa",
@@ -43,6 +56,7 @@ export default function DownloadList(props) {
       },
       id: "3",
       artist: "Atif Aslam",
+      liked: true,
     },
     {
       name: "Lut Gaye",
@@ -51,6 +65,7 @@ export default function DownloadList(props) {
       },
       id: "4",
       artist: "Jubin Nautiyal",
+      liked: true,
     },
     {
       name: "Girls Like You",
@@ -59,6 +74,7 @@ export default function DownloadList(props) {
       },
       id: "5",
       artist: "Maroon 5",
+      liked: false,
     },
     {
       name: "Tere Liye",
@@ -67,6 +83,7 @@ export default function DownloadList(props) {
       },
       id: "6",
       artist: "Madan Mohan",
+      liked: true,
     },
     {
       name: "Thalaivi",
@@ -75,6 +92,7 @@ export default function DownloadList(props) {
       },
       id: "7",
       artist: "Vidya Vox",
+      liked: false,
     },
   ]);
   return (
@@ -119,7 +137,11 @@ export default function DownloadList(props) {
                   justifyContent: "center",
                 }}
               >
-                <Ionicons name="ios-heart" size={24} color="white" />
+                <Ionicons
+                  name="ios-heart"
+                  size={24}
+                  color={item.liked ? "red" : "white"}
+                />
               </View>
             </TouchableOpacity>
           );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -16,6 +16,16 @@ import {
 import Slider from "@react-native-community/slider";
 
 const MusicPlayer = ({ navigation, route }) => {
+  const [status, setStatus] = useState("pause");
+
+  const play_pause = () => {
+    if (status === "pause") {
+      setStatus("play");
+    } else {
+      setStatus("pause");
+    }
+  };
+
   const { item } = route.params;
   return (
     <View style={styles.container}>
@@ -83,6 +93,7 @@ const MusicPlayer = ({ navigation, route }) => {
                 {item.artist}
               </Text>
             </View>
+
             <Ionicons name="heart" size={24} color="white" />
           </View>
           {/*------------------- Slider section ---------------------------- */}
@@ -138,8 +149,8 @@ const MusicPlayer = ({ navigation, route }) => {
             </TouchableOpacity>
           </View>
           <View style={styles.playpause}>
-            <TouchableOpacity>
-              <Ionicons name="pause" size={35} color="#434b56" />
+            <TouchableOpacity onPress={play_pause}>
+              <Ionicons name={status} size={35} color="#434b56" />
             </TouchableOpacity>
           </View>
           <View

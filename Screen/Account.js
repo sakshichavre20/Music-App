@@ -15,8 +15,15 @@ import {
   MaterialIcons,
 } from "react-native-vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { auth, db } from "../Config";
 
 const Account = (props) => {
+  const signOutUser = () => {
+    auth.signOut().then(() => {
+      props.navigation.replace("Login");
+    });
+  };
+
   return (
     <View style={styles.container}>
       {/*-------------------------------- HEADER SECTION STARTS -----------------------------------*/}
@@ -126,11 +133,7 @@ const Account = (props) => {
           style={styles.Signout}
           colors={["#FF3C7E", "#FC2C72", "#ff005c", "#FB0029"]}
         >
-          <TouchableOpacity
-            onPress={() => {
-              props.navigation.replace("Login");
-            }}
-          >
+          <TouchableOpacity onPress={signOutUser}>
             <View
               style={{
                 justifyContent: "center",

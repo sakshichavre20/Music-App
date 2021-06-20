@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import {
@@ -19,8 +19,29 @@ import {
 } from "react-native-vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { ProgressBar, Colors } from "react-native-paper";
+import { auth, db } from "../Config";
 
 export function DrawerContent(props) {
+  const [userData, setUserData] = useState([]);
+  const getUser = async () => {
+    await db
+      .collection("users")
+      .doc(auth.currentUser.uid)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          setUserData(doc.data());
+          console.log(doc.data());
+        }
+      });
+  };
+  useEffect(() => {
+    const unsubscribe = props.navigation.addListener("focus", () => {
+      getUser();
+    });
+    return unsubscribe;
+  }, [props.navigation]);
+
   return (
     <View style={{ flex: 1, backgroundColor: "black" }}>
       <DrawerContentScrollView {...props}>
@@ -44,9 +65,9 @@ export function DrawerContent(props) {
                   />
 
                   <View style={{ marginLeft: 10 }}>
-                    <Title style={{ color: "white" }}>Sakshi Chavre</Title>
+                    <Title style={{ color: "white" }}>{userData.name}</Title>
                     <Caption style={{ fontSize: 15, color: "white" }}>
-                      @Sakshi_Chavre
+                      {userData.email}
                     </Caption>
                   </View>
                 </View>
