@@ -68,7 +68,7 @@ const Login = (props) => {
           style={styles.login}
           colors={["#FF3C7E", "#FC2C72", "#ff005c", "#FB0029"]}
         >
-          <TouchableOpacity onPress={{ login }}>
+          <TouchableOpacity onPress={login}>
             <View
               style={{
                 justifyContent: "center",

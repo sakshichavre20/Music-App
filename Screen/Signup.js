@@ -27,6 +27,7 @@ const Signup = (props) => {
           name: username,
           email: email,
           imgUrl: "",
+          phone: "",
         });
         props.navigation.navigate("HomeScreen");
       })
