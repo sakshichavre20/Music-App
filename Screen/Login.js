@@ -78,7 +78,7 @@ const Login = (props) => {
               }}
             >
               <Text
-                style={{ fontSize: 18, fontWeight: "bold", color: "black" }}
+                style={{ fontSize: 18, fontWeight: "bold", color: "white" }}
               >
                 LOGIN
               </Text>

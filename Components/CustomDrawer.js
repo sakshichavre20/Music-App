@@ -65,7 +65,13 @@ export function DrawerContent(props) {
                   />
 
                   <View style={{ marginLeft: 10 }}>
-                    <Title style={{ color: "white" }}>{userData.name}</Title>
+                    <Title
+                      style={{ color: "white", maxWidth: "90%" }}
+                      numberOfLines={1}
+                      ellipsizeMode="tail"
+                    >
+                      {userData.name}
+                    </Title>
                     <Caption style={{ fontSize: 15, color: "white" }}>
                       {userData.email}
                     </Caption>

@@ -14,17 +14,45 @@ import {
   MaterialCommunityIcons,
 } from "react-native-vector-icons";
 import Slider from "@react-native-community/slider";
+import SoundPlayer from "react-native-sound-player";
+import { Audio, Video } from "expo-av";
 
 const MusicPlayer = ({ navigation, route }) => {
-  const [status, setStatus] = useState("pause");
+  // const [status, setStatus] = useState("pause");
 
-  const play_pause = () => {
-    if (status === "pause") {
-      setStatus("play");
-    } else {
-      setStatus("pause");
-    }
-  };
+  // const [sound, setSound] = useState();
+
+  // async function playSound() {
+  //   console.log("Loading Sound");
+  //   const { sound } = await Audio.Sound.createAsync(
+  //     require("../assets/minimal.mp3")
+  //   );
+
+  //   setSound(sound);
+
+  //   console.log("Playing Sound");
+  //   (await sound.playAsync()) && sound.setVolumeAsync(1);
+  // }
+
+  // useEffect(() => {
+  //   return sound
+  //     ? () => {
+  //         console.log("Unloading Sound");
+  //         sound.pauseAsync();
+  //       }
+  //     : undefined;
+  // }, [sound]);
+
+  // const [status, setStatus] = useState("play");
+
+  // const play_pause = () => {
+  //   if (status === "play") {
+  //     setStatus("pause"), playSound();
+  //   } else {
+  //     setStatus("play"), console.log("Unloading Sound");
+  //     sound.pauseAsync();
+  //   }
+  // };
 
   const { item } = route.params;
   return (

@@ -40,7 +40,7 @@ const Account = (props) => {
   };
   useEffect(() => {
     getUser();
-  }, []);
+  }, [props.navigation]);
 
   const update = async () => {
     await db

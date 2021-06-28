@@ -85,7 +85,7 @@ const Signup = (props) => {
               }}
             >
               <Text
-                style={{ fontSize: 20, fontWeight: "bold", color: "black" }}
+                style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
               >
                 Signup
               </Text>
