@@ -29,6 +29,7 @@ import CustomerSupport from "./Settings/HelpAndSupport/CustomerSupport";
 import Update from "./Settings/HelpAndSupport/Update";
 import MusicPlayer from "./Screen/MusicPlayer";
 import MusicCatogList from "./Screen/MusicCatogList";
+import SongList from "./Screen/SongList";
 
 {
   /* ---------------------------Screen Stack ------------------------------------------- */
@@ -140,6 +141,13 @@ export default function App() {
         <Stack.Screen
           name="MusicCatogList"
           component={MusicCatogList}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="SongList"
+          component={SongList}
           options={{
             headerShown: false,
           }}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   ImageBackground,
   StyleSheet,
@@ -9,13 +9,141 @@ import {
 } from "react-native";
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import MusicCatogList from "./../Screen/MusicCatogList";
+import axios from "axios";
+import { Credentials } from "../Screen/Credentials";
+import base64 from "react-native-base64";
 
 const CategoryCarousel = (props) => {
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;
   const [index, setIndex] = React.useState(0);
   const isCarousel = React.useRef(null);
-  const [data, setData] = React.useState([
+
+  const spotify = Credentials();
+
+  const [token, setToken] = useState("");
+
+  const [genres, setGenres] = useState([]);
+
+  useEffect(() => {
+    axios("https://accounts.spotify.com/api/token", {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization:
+          "Basic " +
+          base64.encode(spotify.ClientId + ":" + spotify.ClientSecret),
+      },
+      data: "grant_type=client_credentials",
+      method: "POST",
+    }).then((tokenResponse) => {
+      setToken(tokenResponse.data.access_token);
+
+      axios("https://api.spotify.com/v1/browse/categories?locale=sv_US", {
+        method: "GET",
+        headers: { Authorization: "Bearer " + tokenResponse.data.access_token },
+      }).then((genreResponse) => {
+        // console.log(genreResponse.data.categories.items);
+        setGenres(genreResponse.data.categories.items);
+      });
+    });
+  }, [spotify.ClientId, spotify.ClientSecret]);
+
+  return (
+    <View style={styles.container}>
+      <Carousel
+        layout="default"
+        layoutCardOffset={20}
+        ref={isCarousel}
+        data={genres}
+        renderItem={({ item, index }) => {
+          return (
+            <View
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                paddingTop: 10,
+              }}
+            >
+              <TouchableOpacity
+                activeOpacity={0.5}
+                onPress={() =>
+                  props.navigation.navigate("MusicCatogList", { item, token })
+                }
+              >
+                <ImageBackground
+                  blurRadius={0}
+                  source={{ uri: item.icons[0].url }}
+                  style={{
+                    width: windowWidth * 0.7,
+                    height: 150,
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                  imageStyle={{ borderRadius: 30 }}
+                >
+                  <Text
+                    style={{
+                      fontSize: 25,
+                      fontWeight: "bold",
+                      color: "white",
+                      marginTop: 95,
+                    }}
+                  >
+                    {item.name}
+                  </Text>
+                </ImageBackground>
+              </TouchableOpacity>
+            </View>
+          );
+        }}
+        sliderWidth={windowWidth}
+        itemWidth={windowWidth * 0.7}
+        onSnapToItem={(index) => setIndex(index)}
+        useScrollView={true}
+        enableSnap={true}
+        loop={true}
+        autoplay={true}
+        enableMomentum={false}
+        lockScrollWhileSnapping={true}
+        autoplayInterval={2000}
+        autoplayDelay={1000}
+      />
+      {/* <Pagination
+        dotsLength={genres.length}
+        dotColor="#FF2871"
+        activeDotIndex={index}
+        carouselRef={isCarousel}
+        dotStyle={{
+          width: 3,
+          height: 3,
+          borderRadius: 5,
+          marginHorizontal: 0,
+          backgroundColor: "red",
+        }}
+        inactiveDotOpacity={0.4}
+        inactiveDotColor="white"
+        inactiveDotScale={1}
+        tappableDots={true}
+        containerStyle={{}}
+      /> */}
+    </View>
+  );
+};
+
+export default CategoryCarousel;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "black",
+    alignItems: "center",
+    width: "100%",
+    height: 190,
+    alignSelf: "center",
+  },
+});
+
+{
+  /* const [data, setData] = React.useState([
     {
       name: "Rock",
       img: {
@@ -341,92 +469,5 @@ const CategoryCarousel = (props) => {
         },
       ],
     },
-  ]);
-  return (
-    <View style={styles.container}>
-      <Carousel
-        layout="default"
-        layoutCardOffset={20}
-        ref={isCarousel}
-        data={data}
-        renderItem={({ item, index }) => {
-          return (
-            <View
-              style={{
-                alignItems: "center",
-                justifyContent: "center",
-                paddingTop: 10,
-              }}
-            >
-              <TouchableOpacity
-                activeOpacity={0.5}
-                onPress={() =>
-                  props.navigation.navigate("MusicCatogList", { item })
-                }
-              >
-                <ImageBackground
-                  blurRadius={2}
-                  source={item.img}
-                  style={{
-                    width: windowWidth * 0.7,
-                    height: 150,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                  imageStyle={{ borderRadius: 30 }}
-                >
-                  <Text
-                    style={{ fontSize: 50, fontWeight: "bold", color: "white" }}
-                  >
-                    {item.name}
-                  </Text>
-                </ImageBackground>
-              </TouchableOpacity>
-            </View>
-          );
-        }}
-        sliderWidth={windowWidth}
-        itemWidth={windowWidth * 0.7}
-        onSnapToItem={(index) => setIndex(index)}
-        useScrollView={true}
-        enableSnap={true}
-        loop={true}
-        autoplay={true}
-        enableMomentum={false}
-        lockScrollWhileSnapping={true}
-        autoplayInterval={3000}
-        autoplayDelay={1000}
-      />
-      <Pagination
-        dotsLength={data.length}
-        dotColor="#FF2871"
-        activeDotIndex={index}
-        carouselRef={isCarousel}
-        dotStyle={{
-          width: 10,
-          height: 10,
-          borderRadius: 5,
-          marginHorizontal: 0,
-          backgroundColor: "red",
-        }}
-        inactiveDotOpacity={0.4}
-        inactiveDotColor="white"
-        inactiveDotScale={1}
-        tappableDots={true}
-        containerStyle={{}}
-      />
-    </View>
-  );
-};
-
-export default CategoryCarousel;
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "black",
-    alignItems: "center",
-    width: "100%",
-    height: 230,
-    alignSelf: "center",
-  },
-});
+  ]);*/
+}

@@ -18,48 +18,55 @@ import SoundPlayer from "react-native-sound-player";
 import { Audio, Video } from "expo-av";
 
 const MusicPlayer = ({ navigation, route }) => {
+  const [sound, setSound] = useState();
+
+  async function playSound() {
+    console.log("Loading Sound");
+    const { sound } = await Audio.Sound
+      .createAsync
+      // require("../assets/minimal.mp3")
+      // {uri.item}
+      ();
+
+    setSound(sound);
+
+    console.log("Playing Sound");
+    (await sound.playAsync()) && sound.setVolumeAsync(1);
+  }
+
+  useEffect(() => {
+    return sound
+      ? () => {
+          console.log("Unloading Sound");
+          sound.pauseAsync();
+        }
+      : undefined;
+  }, [sound]);
+
+  const [status, setStatus] = useState("play");
+
+  const play_pause = () => {
+    if (status === "play") {
+      setStatus("pause"), playSound();
+    } else {
+      setStatus("play"), console.log("Unloading Sound");
+      sound.pauseAsync();
+    }
+  };
   // const [status, setStatus] = useState("pause");
-
-  // const [sound, setSound] = useState();
-
-  // async function playSound() {
-  //   console.log("Loading Sound");
-  //   const { sound } = await Audio.Sound.createAsync(
-  //     require("../assets/minimal.mp3")
-  //   );
-
-  //   setSound(sound);
-
-  //   console.log("Playing Sound");
-  //   (await sound.playAsync()) && sound.setVolumeAsync(1);
-  // }
-
-  // useEffect(() => {
-  //   return sound
-  //     ? () => {
-  //         console.log("Unloading Sound");
-  //         sound.pauseAsync();
-  //       }
-  //     : undefined;
-  // }, [sound]);
-
-  // const [status, setStatus] = useState("play");
-
   // const play_pause = () => {
-  //   if (status === "play") {
-  //     setStatus("pause"), playSound();
+  //   if (status === "pause") {
+  //     setStatus("play");
   //   } else {
-  //     setStatus("play"), console.log("Unloading Sound");
-  //     sound.pauseAsync();
+  //     setStatus("pause");
   //   }
   // };
-
   const { item } = route.params;
   return (
     <View style={styles.container}>
       <ImageBackground
         style={styles.imgBackground}
-        source={item.img}
+        source={{ uri: item.track.album.images[0].url }}
         blurRadius={10}
       >
         {/*-------------------------------- top section --------------------------------------------- */}
@@ -107,18 +114,21 @@ const MusicPlayer = ({ navigation, route }) => {
         <View style={{ height: "70%", width: "100%", alignItems: "center" }}>
           {/*------------------- Image section ---------------------------- */}
           <View style={styles.imagebackview}>
-            <Image source={item.img} style={styles.image} />
+            <Image
+              source={{ uri: item.track.album.images[0].url }}
+              style={styles.image}
+            />
           </View>
           {/*------------------- Song name section ---------------------------- */}
           <View style={styles.songnamesec}>
-            <View>
+            <View style={{ width: "90%" }}>
               <Text
                 style={{ color: "white", fontSize: 24, fontWeight: "bold" }}
               >
-                {item.name}
+                {item.track.name}
               </Text>
               <Text style={{ color: "white", fontSize: 18, fontWeight: "500" }}>
-                {item.artist}
+                {item.track.artists[0].name}
               </Text>
             </View>
 
@@ -156,7 +166,7 @@ const MusicPlayer = ({ navigation, route }) => {
             borderTopStartRadius: 40,
             borderTopEndRadius: 40,
             backgroundColor: "black",
-            opacity: 0.8,
+            opacity: 0.7,
           }}
         >
           <View style={styles.icon}>
