@@ -52,6 +52,64 @@ const CategoryCarousel = (props) => {
     <View style={styles.container}>
       <Carousel
         layout="default"
+        layoutCardOffset={0}
+        ref={isCarousel}
+        data={genres}
+        renderItem={({ item, index }) => {
+          return (
+            <View
+              style={{
+                paddingTop: 10,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <TouchableOpacity
+                activeOpacity={0.5}
+                onPress={() =>
+                  props.navigation.navigate("MusicCatogList", { item, token })
+                }
+              >
+                <ImageBackground
+                  source={{ uri: item.icons[0].url }}
+                  blurRadius={0}
+                  style={{
+                    width: windowWidth * 0.7,
+                    height: 150,
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                  imageStyle={{ borderRadius: 30 }}
+                >
+                  <Text
+                    style={{
+                      fontSize: 25,
+                      fontWeight: "bold",
+                      color: "white",
+                      marginTop: 95,
+                    }}
+                  >
+                    {item.name}
+                  </Text>
+                </ImageBackground>
+              </TouchableOpacity>
+            </View>
+          );
+        }}
+        sliderWidth={windowWidth}
+        itemWidth={windowWidth * 0.7}
+        onSnapToItem={(index) => setIndex(index)}
+        useScrollView={true}
+        enableSnap={true}
+        loop={true}
+        autoplay={true}
+        enableMomentum={false}
+        lockScrollWhileSnapping={true}
+        autoplayDelay={1000}
+        autoplayInterval={2000}
+      />
+      {/* <Carousel
+        layout="default"
         layoutCardOffset={20}
         ref={isCarousel}
         data={genres}

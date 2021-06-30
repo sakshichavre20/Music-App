@@ -31,7 +31,7 @@ export function DrawerContent(props) {
       .then((doc) => {
         if (doc.exists) {
           setUserData(doc.data());
-          console.log(doc.data());
+          //console.log(doc.data());
         }
       });
   };

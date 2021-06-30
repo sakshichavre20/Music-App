@@ -50,7 +50,7 @@ const Login = (props) => {
         <View>
           <TextInput
             style={styles.input1}
-            placeholder="Username"
+            placeholder="Email"
             placeholderTextColor="#FF2871"
             value={email}
             onChangeText={(text) => setEmail(text)}
@@ -86,9 +86,11 @@ const Login = (props) => {
           </TouchableOpacity>
         </LinearGradient>
         <View style={styles.signup}>
-          <Text style={{ fontSize: 20, color: "white" }}>
-            Dont have an account?
-          </Text>
+         
+            <Text style={{ fontSize: 20, color: "white" }}>
+              Dont have an account?
+            </Text>
+         
           <TouchableOpacity onPress={() => props.navigation.navigate("Signup")}>
             <Text
               style={{ fontSize: 23, fontWeight: "bold", color: "#FF2871" }}

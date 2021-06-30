@@ -20,7 +20,7 @@ const MusicCatogList = ({ navigation, route }) => {
       method: "GET",
       headers: { Authorization: "Bearer " + token },
     }).then((playlistResponse) => {
-      //console.log(playlistResponse.data.playlists.items);
+      //console.log(item.id);
       setPlaylist(playlistResponse.data.playlists.items);
     });
   }, []);

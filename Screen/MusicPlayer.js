@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -16,8 +16,41 @@ import {
 import Slider from "@react-native-community/slider";
 import SoundPlayer from "react-native-sound-player";
 import { Audio, Video } from "expo-av";
+import axios from "axios";
+import { Credentials } from "./Credentials";
+import base64 from "react-native-base64";
 
 const MusicPlayer = ({ navigation, route }) => {
+  const spotify = Credentials();
+
+  const [track, setTrack] = useState();
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    axios("https://accounts.spotify.com/api/token", {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization:
+          "Basic " +
+          base64.encode(spotify.ClientId + ":" + spotify.ClientSecret),
+      },
+      data: "grant_type=client_credentials",
+      method: "POST",
+    }).then((tokenResponse) => {
+      setToken(tokenResponse.data.access_token);
+
+      axios(`https://api.spotify.com/v1/tracks/${item.track.id}`, {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + tokenResponse.data.access_token,
+        },
+      }).then((trackResponse) => {
+         //console.log("trackresponce ========>", trackResponse.data.uri);
+        setTrack(trackResponse.data.uri);
+      });
+    });
+  }, [spotify.ClientId, spotify.ClientSecret]);
+
   const [sound, setSound] = useState();
 
   async function playSound() {
@@ -61,6 +94,7 @@ const MusicPlayer = ({ navigation, route }) => {
   //     setStatus("pause");
   //   }
   // };
+
   const { item } = route.params;
   return (
     <View style={styles.container}>
