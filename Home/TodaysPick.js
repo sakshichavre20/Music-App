@@ -6,6 +6,7 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
+  Linking
 } from "react-native";
 import { Image } from "react-native";
 import { Surface } from "react-native-paper";
@@ -77,7 +78,12 @@ export default function TodaysPick(props) {
         renderItem={({ item, index }) => {
           return (
             <TouchableOpacity
-              onPress={() => props.navigation.navigate("MusicPlayer", { item })}
+              // onPress={() => props.navigation.navigate("MusicPlayer", { item })}
+              onPress={() => {
+               // console.log(item.track.external_urls);
+                // navigation.navigate("MusicPlayer", { item })
+                Linking.openURL(item.track.external_urls.spotify);
+              }}
             >
               <Surface style={styles.surface}>
                 <ImageBackground

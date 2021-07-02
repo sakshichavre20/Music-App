@@ -129,12 +129,14 @@ const styles = StyleSheet.create({
     paddingTop: 40,
   },
   header: {
-    backgroundColor: "#FF2871",
+    // backgroundColor: "#FF2871",
+    backgroundColor: "#2d2d2d",
     height: 50,
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
+    elevation: 5,
   },
   search: {
     backgroundColor: "white",

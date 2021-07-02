@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
+  Linking,
 } from "react-native";
 import axios from "axios";
 
@@ -56,7 +57,11 @@ const SongList = ({ navigation, route }) => {
                   //   alignItems: "center",
                   // }}
                   style={styles.list}
-                  onPress={() => navigation.navigate("MusicPlayer", { item })}
+                  onPress={() => {
+                    console.log(item.track.external_urls);
+                    // navigation.navigate("MusicPlayer", { item })
+                    Linking.openURL(item.track.external_urls.spotify);
+                  }}
                 >
                   <Image
                     source={{ uri: item.track.album.images[0].url }}

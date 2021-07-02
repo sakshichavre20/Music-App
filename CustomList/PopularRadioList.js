@@ -77,7 +77,7 @@ export default function PopularRadioList(props) {
         Popular Radio
       </Text>
       <FlatList
-        showsHorizontalScrollIndicator={true}
+        showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.id}
         data={songname}
         horizontal={true}
